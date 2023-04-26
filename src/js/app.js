@@ -372,7 +372,7 @@
 //  })
 
 
-//hits swiper
+//preview-swiper
 const previewSwiper = new Swiper('.preview-swiper', {
     slidesPerView: 2,
     speed: 400,
@@ -392,6 +392,8 @@ const previewSwiper = new Swiper('.preview-swiper', {
     }
 })
 
+
+//benefit-swiper
 const benefitSwiper = new Swiper('.benefit-swiper', {
     slidesPerView: 3,
     speed: 400,
@@ -410,9 +412,101 @@ const benefitSwiper = new Swiper('.benefit-swiper', {
     }
 })
 
+
+//benefit-swiper _____car
+const benefitSwiperCar = new Swiper('.benefit-swiper-car', {
+  slidesPerView: 2.2,
+  speed: 400,
+  pagination: {
+    el: '.benefit-swiper-car-pagination',
+    type: 'bullets',
+    clickable: true,
+  },
+  breakpoints: {
+      0: {
+        slidesPerView: 1.5,
+      },
+      768: {
+        slidesPerView: 2.5,
+        spaceBetween: 8,
+      },
+      1024: {
+          slidesPerView: 2.25,
+          spaceBetween: 25,
+      },
+  }
+})
+
+//types-swiper
 const typesSwiper = new Swiper('.types-swiper', {
     slidesPerView: 2.55,
     speed: 400,
     spaceBetween: 10,
     // centeredSlides: true,
+})
+
+
+//offers__item-swiper
+const offersItemSwiper = new Swiper('.offers__item-swiper', {
+  slidesPerView: 1,
+  speed: 400,
+  spaceBetween: 10,
+  pagination: {
+    el: '.offers__item-pagination',
+    type: 'bullets',
+    clickable: true,
+},
+})
+
+
+//car-swiper
+//вертикальная слайдер
+var carSwiperThumb = new Swiper(".car-swiper-thumb", {
+  loop: true,
+  spaceBetween: 6,
+  slidesPerView: 5,
+  freeMode: true,
+  watchSlidesProgress: true,
+  direction: "vertical",
+});
+//горизонтальный слайдер
+var carSwiper = new Swiper(".car-swiper", {
+  loop: true,
+  spaceBetween: 10,
+  slidesPerView: 1,
+  navigation: {
+    nextEl: ".car-swiper__next",
+    prevEl: ".car-swiper__prev",
+  },
+  pagination: {
+    el: '.car-swiper__pagination',
+    type: 'fraction',
+  },
+  thumbs: {
+    swiper: carSwiperThumb,
+  },
+});
+
+
+//card other 
+const otherSwiper = new Swiper('.other-swiper', {
+  slidesPerView: 3,
+  speed: 400,
+  spaceBetween: 10,
+})
+
+
+//advantages swiper 
+const advantagesSwiper = new Swiper('.advantages-swiper', {
+  slidesPerView: 3,
+  speed: 400,
+  spaceBetween: 25,
+})
+
+
+//parnters swiper 
+const partnersSwiper = new Swiper('.partners-swiper', {
+  slidesPerView: 3.5,
+  speed: 400,
+  spaceBetween: 14,
 })

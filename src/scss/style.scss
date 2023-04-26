@@ -107,7 +107,12 @@ body {
 
 .wrapper {
   position: relative;
-  padding-top: 30px;
+  &-padding {
+    padding-top: 30px;
+  }
+  @media(max-width:1023px) {
+    padding-top: 0;
+  }
 }
 .container {
   max-width: 1310px;
@@ -157,6 +162,19 @@ body {
       font-size: 18px;
       line-height: 21px;
       color: #ABABAB;
+    }
+    &_green {
+      background: #12BC3A;
+      border-radius: 10px;
+      font-family: 'Rubik';
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #FFFFFF;
+      padding: 16px 20px;
+      &:hover {
+        background: #139e33;
+      }
     }
     &_phone {
       gap: 11px;
@@ -212,6 +230,7 @@ body {
         height: 11px;
       }
     }
+
 }
 
 h2 {
@@ -229,4 +248,9 @@ h3 {
   font-size: 26px;
   line-height: 31px;
   color: #272727;
+}
+.field {
+  padding: 17px 18px;
+  background: #EEF1F8;
+  border-radius: 5px;
 }

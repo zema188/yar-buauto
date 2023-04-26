@@ -1,0 +1,46 @@
+.header-car {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  &__name {
+    font-family: 'Rubik';
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 26px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Rubik';
+    font-weight: 600;
+  }
+
+  &__price-now {
+    font-size: 26px;
+    line-height: 31px;
+  }
+
+  &__price-before {
+    font-size: 22px;
+    line-height: 26px;
+    text-decoration: line-through;
+    color: #A0A0A0;
+  }
+}
+.header {
+
+  &__phone-action {
+  }
+
+  &__phone-btn {
+  }
+
+  &__menu {
+  }
+}

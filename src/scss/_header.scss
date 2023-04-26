@@ -1,19 +1,27 @@
 .header-w {
 }
 .header {
-    padding-top: 20px;
-    padding-bottom: 20px;
-
 		&__content {
+            padding-top: 20px;
+            padding-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 11px;
+            @media(max-width:767px) {
+              padding-top: 6px;
+              padding-bottom: 6px;
+            }
 		}
 
 		&__logo {
             @media(max-width:1199px) {
                 font-size: 33px;
+            }
+            @media(max-width:767px) {
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 110%;
             }
 		}
 
@@ -55,6 +63,9 @@
                     display: none;
                 }
             }
+            @media(max-width:767px) {
+              padding: 14px 9px;
+            }
             & span {
                 @media(max-width:1023px) {
                     display: none;
@@ -79,7 +90,7 @@
 
 
 .nav-icon {
-    width: 17px;
+    width: 19px;
     height: 15px;
     position: relative;
     transform: rotate(0deg);
@@ -103,10 +114,10 @@
     top: 0px;
   }
   .nav-icon span:nth-child(2) {
-    top: 6px;
+    top: 5px;
   }
   .nav-icon span:nth-child(3) {
-    top: 12px;
+    top: 10px;
   }
   .nav-icon.open span {
     left: 7px;

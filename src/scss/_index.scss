@@ -3,6 +3,13 @@
 .preview-swiper {
     padding-top: 28px;
     padding-bottom: 28px;
+    @media(max-width:767px) {
+        padding-top: 11px;
+        padding-bottom: 28px;
+    }
+    @media(max-width:539px) {
+        padding-bottom: 10px;
+    }
 		&__wrapper {
 		}
 
@@ -24,10 +31,16 @@
             padding: 43px 64px 25px 34px;
             height: 100%;
             @media(max-width:767px) {
+                padding: 37px 23px 8px 18px;
                 display: flex;
                 justify-content: center;
                 transition: .2s;
                 max-width: 500px;
+            }
+            @media(max-width:539px) {
+                width: 100%;
+                padding: 37px 25px 3px 19px;
+                justify-content: space-between;
             }
         }
 		&__slide-text {
@@ -51,6 +64,10 @@
                 font-size: 20px;
                 line-height: 22px;
             }
+            @media(max-width:767px) {
+                padding-bottom: 11px;
+                margin-bottom: 13px;
+            }
             &::after {
                 content: "";
                 left: 0;
@@ -59,6 +76,9 @@
                 height: 2px;
                 background: #323232;
                 position: absolute;
+                @media(max-width:767px) {
+                    width: 28px;
+                }
             }
 		}
 
@@ -69,8 +89,15 @@
                 font-size: 15px;
                 line-height: 17px;
             }
+            @media(max-width:767px) {
+                font-size: 11.0067px;
+                line-height: 13px;
+            }
             &:not(:last-child) {
                 margin-bottom: 10px;
+                @media(max-width:767px) {
+                    margin-bottom: 6px;
+                }
             }
             & b {
                 font-weight: 600;
@@ -94,6 +121,9 @@
             }
             & img {
                 width: 100%;
+                @media(max-width:767px) {
+                    max-width: 121px;
+                }
             }
 		}
         &.swiper-horizontal>.swiper-pagination-bullets {
@@ -112,6 +142,10 @@
                 border-radius: 13px;
                 background: #2C64EE;
                 opacity: 1;
+                @media(max-width:539px) {
+                    border-radius: 4px;
+                    height: 2px;
+                }
             }
             .swiper-pagination-bullet-active {
                 transition: .5s;
@@ -127,6 +161,32 @@
 
 .mileage {
     padding-top: 60px;
+    &_without-photo {
+        padding-top: 73px;
+        & .mileage__item-pic {
+            display: none;
+        }
+        & .mileage__item {
+            padding: 11px 7px 12px 14px;
+        }
+        & .btn_dropdown {
+            padding: 11px 25px;
+            gap: 7px;
+            font-size: 18px;
+            &:before {
+                width: 11px;
+                height: 14px;
+            }
+        }
+        & .mileage__footer {
+            gap: 10px;
+        }
+        & .btn_filter {
+            border-radius: 5px;
+            padding: 12px 29px;
+            gap: 13px;
+        }
+    }
     &_photos {
         @media(max-width:539px) {
             display: none;
@@ -200,12 +260,30 @@
     box-shadow: 1px 1px 6px 8px rgba(39, 39, 39, 0.04);
     border-radius: 5px;
     margin-top: 26px;
-    padding: 50px 28px 16px 50px;
-    @media(max-width:767px) {
-        padding: 35px 28px;
+    padding: 50px 10px 16px 33px;
+    &_markup {
+        padding: 50px 10px 16px 17px;
+        & .filter__item {
+            max-width: 244px;
+        }
+        & .filter__footer-btn_reset {
+            padding: 18px 26px 17px 60px;
+        }
+        & .filter__footer-btn_show {
+            padding: 19px 28px;
+        }
+        & .filter__footer-btns {
+            gap: 37px;
+        }
+        .filter__footer-btn_close {
+            padding: 18px 17px;
+        }
     }
     @media(max-width:767px) {
         padding: 35px 0px;
+    }
+    @media(max-width:539px) {
+        padding: 17px 0px;
     }
     &__content {
         display: flex;
@@ -339,8 +417,18 @@
         color: #7E7E7E;
         margin-top: 6px;
         display: flex;
-        gap: 7px;
+        gap: 5px;
         align-items: center;
+        & span {
+            position: relative;
+            &:not(:last-child) {
+                &::after {
+                    content: "·";
+                    margin-left: 4px;
+                    font-weight: 600;
+                }
+            }
+        }
     }
 
     &__year {
@@ -363,23 +451,8 @@
     padding-top: 69px;
     &__wrapper {
     }
-
     &__slide {
-        background: #E6EFFF;
-        border-radius: 5.45313px;
-        position: relative;
-        padding: 30px 20px 20px 41px;
         height: auto;
-        &_red {
-            & .benefit-swiper__slide-pic {
-                max-width: 138px;
-            }
-        }
-        &_blue {
-            & .benefit-swiper__slide-pic {
-                max-width: 115px;
-            }
-        }
     }
 
     &__slide-subtitle {
@@ -421,6 +494,23 @@
         }
     }
 }
+.benefit__item {
+    background: #E6EFFF;
+    border-radius: 5.45313px;
+    position: relative;
+    padding: 30px 20px 20px 41px;
+    height: 100%;
+    &_red {
+        & .benefit-swiper__slide-pic {
+            max-width: 138px;
+        }
+    }
+    &_blue {
+        & .benefit-swiper__slide-pic {
+            max-width: 115px;
+        }
+    }
+}
 .types-swiper {
     display: none;
     @media(max-width:539px) {
@@ -436,8 +526,10 @@
         display: block;
         width: 100%;
         object-fit: cover;
-        margin-bottom: 5px;
         max-width: 136px;
+        @media(max-width:539px) {
+            max-width: 88px;
+        }
     }
     & span {
         display: block;
@@ -445,6 +537,8 @@
         font-size: 10.5692px;
         line-height: 12px;
         color: rgba(39, 39, 39, 0.7);
+        @media(max-width:539px) {
+        }
     }
 }
 .types-swiper__slide-pic {
@@ -452,4 +546,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    @media(max-width:539px) {
+        height: 56px;
+    }
 }
