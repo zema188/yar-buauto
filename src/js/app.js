@@ -510,3 +510,149 @@ const partnersSwiper = new Swiper('.partners-swiper', {
   speed: 400,
   spaceBetween: 14,
 })
+
+
+//car page  car__equipment-item 
+let carEquipmentItem = document.querySelectorAll('.car__equipment-item-subtitle')
+if(carEquipmentItem.length) {
+  for(let i = 0; i<carEquipmentItem.length; i++) {
+    carEquipmentItem[i].addEventListener("click", function() {
+      let parent = carEquipmentItem[i].closest('.car__equipment-item')
+      parent.classList.toggle('active')
+    })
+  } 
+}
+
+
+//car page car__discount
+if(document.querySelectorAll('.car__discount-btn').length) {
+  let carDiscountBtn = document.querySelector('.car__discount-btn')
+  let discount = document.querySelector('.car__discount')
+  carDiscountBtn.onclick = function() {
+    this.classList.toggle('active')
+    discount.classList.toggle('active')
+  }
+}
+
+
+if(document.querySelectorAll('.credit__form').length) {
+  // рассчет при загрузке страницы
+  calc()
+  //связываем поля друг с другом
+  //поля ввода
+  let fields = document.querySelectorAll('[range-for]')
+  link_Feilds(fields)
+  let fieldsRange = document.querySelectorAll('[range-name]')
+  link_Feilds_Range(fieldsRange)
+
+}
+
+//link fields for calc поля ввода 
+function link_Feilds(fields) {
+  for(let i = 0; i < fields.length; i++) {
+    let id = fields[i].getAttribute('range-for')
+    let suffix = fields[i].getAttribute('suffix')
+    let min = fields[i].getAttribute('min')
+    let max = fields[i].getAttribute('max')
+    let range = document.querySelector('[range-name="'+id+'"]')
+
+
+
+    fields[i].addEventListener('blur', function() {
+      addSuffix(fields[i], suffix, min, max)
+      let number = getNumber(fields[i].value)
+      range.value = number
+    }) 
+
+
+    
+    fields[i].addEventListener('input', function() {
+      let number = getNumber(fields[i].value)
+      range.value = number
+      calc()
+    })
+    fields[i].addEventListener('click', function() {
+      // console.log(fields[i].value.split('').join)
+    })
+  }
+}
+
+function link_Feilds_Range(range) {
+  for(let i = 0; i < range.length; i++) {
+    let id = range[i].getAttribute('range-name')
+    let field = document.querySelector('[range-for="'+id+'"]')
+    let suffix = range[i].getAttribute('suffix')
+    range[i].addEventListener('input', function() {
+      field.value = numberWithCommas(range[i].value) + ' ' + suffix
+      calc()
+    })
+  }
+}
+
+
+
+
+function getNumber(str){
+  return +str.replace(/[\D]+/g, '') 
+}
+function addSuffix(field, text, min, max) {
+  // let test = fields[i].value.split(' ').join('')
+  // test = getNumber(test)
+  // fields[i].value = numberWithCommas(test)
+
+
+  let value = field.value;
+  let number = min
+  if(value) {
+    console.log(value)
+    value = value.split(' ').join('')
+    number = parseInt(value.match(/\d+/)[0], 10);
+  }
+  if(number > max)
+    number = max
+  field.value = ""
+  console.log(number)
+  field.value = numberWithCommas(number) + ' ' + text;
+}
+
+
+function calc() {
+
+
+  let price = document.querySelector('.car__price-now').innerHTML
+  price =  parseInt(price.split(' ').join(''))
+  let months = document.querySelector('[range-name="months"').value
+  months =  parseInt(months)
+  let procents = document.querySelector('.credit-year-procent').innerHTML
+  procents =  parseFloat(procents.split(' ').join(''))
+  procents = (procents / 100) / 12
+  let firstPay = document.querySelector('[range-name="deposit"').value
+  price = price - firstPay
+
+  let res =  (price * procents) / (1 - Math.pow((1 + procents),(-months)))
+  res = parseInt(res)
+  res = numberWithCommas(res)
+  let creditResult = document.querySelector('.credit-result')
+  
+  creditResult.innerHTML = res + ' ₽'
+
+
+
+
+
+
+
+  
+  // res = A = (price * i) / (1 - (1 + i)^(-months))
+  // res = A = (P * i) / (1 - (1 + i)^(-n))
+
+  // где:
+  // A - ежемесячный платеж
+  // P - общая цена
+  // i - месячная процентная ставка (годовая ставка / 12)
+  // n - количество месяцев
+}
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+}

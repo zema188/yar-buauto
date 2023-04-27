@@ -6,7 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="css/swiper-bundle.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 	<link rel="stylesheet" type="text/css" href="files/fonts/stylesheet.css">
 	<link rel="stylesheet" type="text/css" href="css/style.min.css">
-	<title>TITLE</title>
+	<title>AvtoSalon</title>
 </head>
 <body>	
 	<div class="wrapper">
@@ -478,8 +478,8 @@
 													3-я рука
 												</span>
 											</div>
-											<div class="card__price">
-												297 000 ₽
+											<div class="card__price price">
+												297 000
 											</div>
 										</a>
 									</div>
@@ -503,8 +503,8 @@
 													1-я рука
 												</span>
 											</div>
-											<div class="card__price">
-												325 000 ₽
+											<div class="card__price price">
+												325 000
 											</div>
 										</a>
 									</div>
@@ -528,8 +528,8 @@
 													с пробегом
 												</span>
 											</div>
-											<div class="card__price">
-												435 500 ₽
+											<div class="card__price price">
+												435 500
 											</div>
 										</a>
 									</div>
@@ -550,8 +550,8 @@
 													178 000 км
 												</span>
 											</div>
-											<div class="card__price">
-												297 000 ₽
+											<div class="card__price price">
+												297 000
 											</div>
 										</a>
 									</div>
@@ -572,8 +572,8 @@
 													178 000 км
 												</span>
 											</div>
-											<div class="card__price">
-												325 000 ₽
+											<div class="card__price price">
+												325 000
 											</div>
 										</a>
 									</div>
@@ -594,8 +594,8 @@
 													125 000 км
 												</span>
 											</div>
-											<div class="card__price">
-												435 500 ₽
+											<div class="card__price price">
+												435 500
 											</div>
 										</a>
 									</div>
@@ -606,14 +606,14 @@
 				</div>
 				<div class="markup__bar">
 					<div class="car__price">
-						<div class="car__price-now">
-							1 555 750 ₽
+						<div class="car__price-now price">
+							1 555 750
 						</div>
 						<div class="car__discount-btn">
 							<img src="./img/icons/arrow_discount.svg" alt="arrow-btn">
 						</div>
-						<div class="car__price-before">
-							1 855 900 ₽
+						<div class="car__price-before price">
+							1 855 900
 						</div>
 					</div>
 					<div class="car__discount car__discount_margin">
@@ -661,12 +661,12 @@
 										<span class="credit__item-subtitle">
 											Желаемый срок кредита
 										</span>
-										<input class="credit__field" value="36 мес">
-										<input class="credit__field" type="range" min="0" max="96" value="48">
+										<input class="credit__field" range-for="months" suffix="мес." min="0" max="96" value="11 мес.">
+										<input class="credit__field" range-name="months" suffix="мес." type="range" min="0" max="96" value="11" step="1">
 									 </div>
 									 <div class="credit__item-footer">
-										<span>2 мес</span>
-										<span>80%</span>
+										<span>1 мес</span>
+										<span>96 мес</span>
 									 </div>
 								</div>
 								<div class="credit__item-calc">
@@ -674,12 +674,12 @@
 										<span class="credit__item-subtitle">
 											Первоначальный взнос
 										</span>
-										<input class="credit__field" value="34 500 ₽">
-										<input class="credit__field" type="range" min="0" max="100" value="50">
+										<input class="credit__field" range-for="deposit" suffix="₽" min="0" max="1000000" value="100 000 ₽">
+										<input class="credit__field" range-name="deposit" suffix="₽" type="range" min="0" max="1000000" value="100000" step="1000">
 									 </div>
 									 <div class="credit__item-footer">
-										<span>2 мес</span>
-										<span>80%</span>
+										<span>0%</span>
+										<span>100%</span>
 									 </div>
 								</div>
 								<div class="credit__calc-res">
@@ -687,7 +687,7 @@
 										<div class="credit__calc-desc-subtitle">
 											Ежемесячный платеж:
 										</div>
-										<span>
+										<span class="credit-result">
 											4 230 ₽
 										</span>
 									</div>
@@ -695,7 +695,7 @@
 										<div class="credit__calc-desc-subtitle">
 											Годовая ставка:
 										</div>
-										<span>
+										<span class="credit-year-procent">
 											4.9%
 										</span>
 									</div>

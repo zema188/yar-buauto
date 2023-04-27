@@ -254,3 +254,8 @@ h3 {
   background: #EEF1F8;
   border-radius: 5px;
 }
+.price {
+  &::after {
+    content: "₽";
+  }
+}

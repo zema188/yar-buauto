@@ -345,8 +345,13 @@
         align-items: center;
         width: 44px;
         height: 32px;
+        cursor: pointer;
+        &.active {
+            & img {
+                transform: rotate(180deg);
+            }
+        }
         & img {
-            transform: rotate(0deg);
             transition: .2s;
         }
     }
@@ -364,6 +369,10 @@
         box-shadow: 2px 2px 4px 6px rgba(39, 39, 39, 0.03);
         border-radius: 5px;
         padding: 33px;
+        display: none;
+        &.active {
+            display: block;
+        }
         &_margin {
             margin-bottom: 53px;
         }
