@@ -1,10 +1,17 @@
 .footer-w {
     background: #1B1B1B;
     margin-top: 83px;
+    @media(max-width:539px) {
+        margin-top: 46px;
+    }
 }
 .footer {
     padding-top: 66px;
     padding-bottom: 66px;
+    @media(max-width:539px) {
+        padding-top: 17px;
+        padding-bottom: 20px;
+    }
     & .nav-icon {
         & span {
             background: #fff;
@@ -20,6 +27,10 @@
             line-height: 21px;
             border-bottom: 1px solid #FFFFFF;
             padding-bottom: 40px;
+            @media(max-width:539px) {
+                border-bottom: none;
+                padding-bottom: 0;
+            }
 		}
 
 		&__logo {
@@ -27,6 +38,14 @@
             font-size: 32px;
             line-height: 110%;
             color: #FFFFFF;
+            @media(max-width:539px) {
+                font-family: 'Montserrat';
+                font-style: italic;
+                font-weight: 800;
+                font-size: 14px;
+                line-height: 17px;
+                letter-spacing: 0.07em;
+            }
 		}
 
 		&__nav {
@@ -57,10 +76,20 @@
 
 		&__dics {
             margin-top: 42px;
+            @media(max-width:539px) {
+                margin-top: 13px;
+            }
             & p,a {
                 line-height: 16px;
                 letter-spacing: 0.07em;
                 color: rgba(255, 255, 255, 0.4);
+                @media(max-width:539px) {
+                    font-family: 'Arial';
+                    font-weight: 400;
+                    font-size: 8px;
+                    line-height: 9px;
+                    letter-spacing: 0.07em;
+                }
             }
             & a {
                 text-decoration: underline;

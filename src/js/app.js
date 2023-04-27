@@ -400,7 +400,8 @@ const benefitSwiper = new Swiper('.benefit-swiper', {
     spaceBetween: 35,
     breakpoints: {
         0: {
-          slidesPerView: 1.5,
+          slidesPerView: 1.65,
+          spaceBetween: 8,
         },
         768: {
           slidesPerView: 2.5,
@@ -426,7 +427,7 @@ const benefitSwiperCar = new Swiper('.benefit-swiper-car', {
       0: {
         slidesPerView: 1.5,
       },
-      768: {
+      900: {
         slidesPerView: 2.5,
         spaceBetween: 8,
       },
@@ -455,7 +456,27 @@ const offersItemSwiper = new Swiper('.offers__item-swiper', {
     el: '.offers__item-pagination',
     type: 'bullets',
     clickable: true,
-},
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1.42,
+      spaceBetween: 5,
+    },
+    360: {
+      slidesPerView: 1.42,
+      spaceBetween: 5,
+    },
+    450: {
+      slidesPerView: 1.82,
+      spaceBetween: 5,
+    },
+    540: {
+      slidesPerView: 2.5,
+    },
+    768: {
+      slidesPerView: 1,
+    },
+}
 })
 
 
@@ -604,14 +625,12 @@ function addSuffix(field, text, min, max) {
   let value = field.value;
   let number = min
   if(value) {
-    console.log(value)
     value = value.split(' ').join('')
     number = parseInt(value.match(/\d+/)[0], 10);
   }
   if(number > max)
     number = max
   field.value = ""
-  console.log(number)
   field.value = numberWithCommas(number) + ' ' + text;
 }
 
@@ -656,3 +675,4 @@ function calc() {
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
+

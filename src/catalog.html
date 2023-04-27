@@ -11,10 +11,10 @@
 <body>	
 	<div class="wrapper wrapper_padding">
 		@@include("./header.html")
-		<div class="markup container">
+		<div class="markup markup_catalog container">
 			<div class="markup__body">
 				<div class="markup__content">
-					<div class="mileage mileage_without-photo">
+					<div class="mileage mileage_without-photo container_tablet">
 						<h2>
 							Продажа авто с пробегом
 						</h2>
@@ -97,7 +97,7 @@
 									8
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Mazda.png" alt="Mazda">
@@ -110,7 +110,7 @@
 									192
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/s.png" alt="c">
@@ -123,7 +123,7 @@
 									9
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Haval.png" alt="Haval">
@@ -136,7 +136,7 @@
 									26
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Mitsubishi.png" alt="Mitsubishi">
@@ -149,7 +149,7 @@
 									178
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Datsun.png" alt="Datsun">
@@ -162,7 +162,7 @@
 									10
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Opel.png" alt="Opel">
@@ -175,7 +175,7 @@
 									181
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Suzuki.png" alt="Suzuki">
@@ -188,7 +188,7 @@
 									53
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/FAW.png" alt="FAW">
@@ -201,7 +201,7 @@
 									4
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/KIA.png" alt="KIA">
@@ -214,7 +214,7 @@
 									906
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Toyota.png" alt="Toyota">
@@ -227,7 +227,7 @@
 									57
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Ford.png" alt="Ford">
@@ -240,7 +240,7 @@
 									346
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/LADA.png" alt="LADA (ВАЗ)">
@@ -253,7 +253,7 @@
 									244
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Volkswagen.png" alt="Volkswagen">
@@ -266,7 +266,7 @@
 									439
 								</div>
 							</a>
-							<a href="#" class="mileage__item">
+							<a href="#" class="mileage__item hidden">
 								<div class="mileage__item-side">
 									<div class="mileage__item-pic">
 										<img src="./img/pic/Geely.png" alt="Geely ">
@@ -290,106 +290,149 @@
 							</button>
 						</div>
 					</div>
-					<div class="filter_markup filter ">
-						<div class="types-swiper swiper">
-							<div class="types-swiper__wrapper swiper-wrapper">
-							  <div class="types-swiper__slide swiper-slide">
-								<div class="types-swiper__slide-pic">
-									<img src="./img/pic/type1.png" alt="car">
+					<div class="container_tablet">
+						<div class="filter_markup filter_catalog filter ">
+							<div class="types-swiper swiper">
+								<div class="types-swiper__wrapper swiper-wrapper">
+								  <div class="types-swiper__slide swiper-slide">
+									<div class="types-swiper__slide-pic">
+										<img src="./img/pic/type1.png" alt="car">
+									</div>
+									<span>мини</span>
+								  </div>
+								  <div class="types-swiper__slide swiper-slide">
+									<div class="types-swiper__slide-pic">
+										<img src="./img/pic/type2.png" alt="car">
+									</div>
+									<span>Хетчбэки</span>
+								  </div>
+								  <div class="types-swiper__slide swiper-slide">
+									<div class="types-swiper__slide-pic">
+										<img src="./img/pic/type3.png" alt="car">
+									</div>
+									<span>Седаны</span>
+								  </div>
+								  <div class="types-swiper__slide swiper-slide">
+									<div class="types-swiper__slide-pic">
+										<img src="./img/pic/type1.png" alt="car">
+									</div>
+									<span>мини</span>
+								  </div>
+								  <div class="types-swiper__slide swiper-slide">
+									<div class="types-swiper__slide-pic">
+										<img src="./img/pic/type2.png" alt="car">
+									</div>
+									<span>Хетчбэки</span>
+								  </div>
+								  <div class="types-swiper__slide swiper-slide">
+									<div class="types-swiper__slide-pic">
+										<img src="./img/pic/type3.png" alt="car">
+									</div>
+									<span>Седаны</span>
+								  </div>
 								</div>
-								<span>мини</span>
 							  </div>
-							  <div class="types-swiper__slide swiper-slide">
-								<div class="types-swiper__slide-pic">
-									<img src="./img/pic/type2.png" alt="car">
+							<div class="filter__content">
+								<label class="filter__item">
+									<span>Марка, модель</span>
+									<input class="filter__item-field">
+								</label>
+								<div class="filter__item">
+									<span>Цена, ₽</span>
+									<input class="filter__item-field">
 								</div>
-								<span>Хетчбэки</span>
-							  </div>
-							  <div class="types-swiper__slide swiper-slide">
-								<div class="types-swiper__slide-pic">
-									<img src="./img/pic/type3.png" alt="car">
+								<div class="filter__item">
+									<span>Год выпуска</span>
+									<input class="filter__item-field">
 								</div>
-								<span>Седаны</span>
-							  </div>
-							  <div class="types-swiper__slide swiper-slide">
-								<div class="types-swiper__slide-pic">
-									<img src="./img/pic/type1.png" alt="car">
+								<div class="filter__item">
+									<span>Пробег, км</span>
+									<input class="filter__item-field">
 								</div>
-								<span>мини</span>
-							  </div>
-							  <div class="types-swiper__slide swiper-slide">
-								<div class="types-swiper__slide-pic">
-									<img src="./img/pic/type2.png" alt="car">
+								<div class="filter__item">
+									<span>Коробка</span>
+									<input class="filter__item-field">
 								</div>
-								<span>Хетчбэки</span>
-							  </div>
-							  <div class="types-swiper__slide swiper-slide">
-								<div class="types-swiper__slide-pic">
-									<img src="./img/pic/type3.png" alt="car">
+								<div class="filter__item">
+									<span>Привод</span>
+									<input class="filter__item-field">
 								</div>
-								<span>Седаны</span>
-							  </div>
+								<div class="filter__item">
+									<span>Типы кузова</span>
+									<input class="filter__item-field">
+								</div>
+								<div class="filter__item">
+									<span>Типы двигателей</span>
+									<input class="filter__item-field">
+								</div>
+								<div class="filter__item">
+									<span>Рука</span>
+									<input class="filter__item-field">
+								</div>
 							</div>
-						  </div>
-						<div class="filter__content">
-							<label class="filter__item">
-								<span>Марка, модель</span>
-								<input class="filter__item-field">
-							</label>
-							<div class="filter__item">
-								<span>Цена, ₽</span>
-								<input class="filter__item-field">
-							</div>
-							<div class="filter__item">
-								<span>Год выпуска</span>
-								<input class="filter__item-field">
-							</div>
-							<div class="filter__item">
-								<span>Пробег, км</span>
-								<input class="filter__item-field">
-							</div>
-							<div class="filter__item">
-								<span>Коробка</span>
-								<input class="filter__item-field">
-							</div>
-							<div class="filter__item">
-								<span>Привод</span>
-								<input class="filter__item-field">
-							</div>
-							<div class="filter__item">
-								<span>Типы кузова</span>
-								<input class="filter__item-field">
-							</div>
-							<div class="filter__item">
-								<span>Типы двигателей</span>
-								<input class="filter__item-field">
-							</div>
-							<div class="filter__item">
-								<span>Рука</span>
-								<input class="filter__item-field">
-							</div>
-						</div>
-						<div class="filter__footer">
-							<button class="filter__footer-btn btn btn_grey filter__footer-btn_reset">
-								Сбросить параметры
-							</button>
-							<div class="filter__footer-btns">
-								<button class="filter__footer-btn btn btn_grey filter__footer-btn_close">
-									Закрыть
+							<div class="filter__footer">
+								<button class="filter__footer-btn btn btn_grey btn_reset filter__footer-btn_reset">
+									Сбросить параметры
 								</button>
-								<button class="filter__footer-btn btn btn_blue filter__footer-btn_show">
-									Показать <span> 4 345 </span> авто
-								</button>
-								<button class="filter__footer-btn btn btn_blue btn_filter filter__footer_filter">
-		
-								</button>
+								<div class="filter__footer-btns">
+									<button class="filter__footer-btn btn btn_grey filter__footer-btn_close">
+										Закрыть
+									</button>
+									<button class="filter__footer-btn btn btn_blue filter__footer-btn_show">
+										Показать <span> 4 345 </span>
+									</button>
+									<button class="filter__footer-btn btn btn_blue btn_filter filter__footer_filter">
+			
+									</button>
+								</div>
 							</div>
 						</div>
 					</div>
 					<div class="offers">
+						<div class="offers__header_mobile">
+							<div class="offers__header-total">
+								4 345 предложений
+							</div>
+							<div class="offers__header-filter">
+								<div class="offers__header-filter-title">
+									По актуальности
+								</div>
+								<div class="offers__header-filter-list">
+									<div class="offers__header-filter-item">
+										По дате
+									</div>
+									<div class="offers__header-filter-item">
+										По актуальности
+									</div>
+									<div class="offers__header-filter-item">
+										По актуальности
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="offers__content">
 							<div class="offers__list">
 								<a href="#" class="offers__item">
+									<div class="offers__item-info_mobile">
+										<div class="offers__item-desc">
+											<div class="offers__item-name_mobile">
+												Peugeot 408, <span>2012</span>
+											</div>
+											<div class="offers__item-price-now_mobile price">
+												360 750
+											</div>
+											<div class="offers__item-price-before_mobile price">
+												555 000
+											</div>
+										</div>
+										<div class="offers__item-credit_mobile">
+											от 
+											<span>
+												15 173 р/мес.
+											</span>
+												под 18%* годовых
+										</div>
+									</div>
 									<div class="offers__item-swiper swiper">
 										<div class="offers__item-swiper-wrapper swiper-wrapper">
 										  <div class="offers__item-slide swiper-slide">
@@ -438,7 +481,7 @@
 												под 18%* годовых
 											</div>
 										</div>
-										<div class="offers__item-info card__info">
+										<div class="offers__item-info card__info card__info_pc">
 											<span class="card__year">
 												2012
 											</span>
@@ -446,7 +489,7 @@
 												307 000 км
 											</span>
 										</div>
-										<div class="offers__item-info card__info">
+										<div class="offers__item-info card__info ">
 											<span>
 												Бензин
 											</span>
@@ -462,6 +505,9 @@
 											<span>
 												Передний
 											</span>
+										</div>
+										<div class="offers__item-date">
+											12 марта 2023
 										</div>
 									</div>
 									<div class="offers__item-btns">
@@ -474,6 +520,26 @@
 									</div>
 								</a>
 								<a href="#" class="offers__item">
+									<div class="offers__item-info_mobile">
+										<div class="offers__item-desc">
+											<div class="offers__item-name_mobile">
+												Peugeot 408, <span>2012</span>
+											</div>
+											<div class="offers__item-price-now_mobile price">
+												360 750
+											</div>
+											<div class="offers__item-price-before_mobile price">
+												555 000
+											</div>
+										</div>
+										<div class="offers__item-credit_mobile">
+											от 
+											<span>
+												15 173 р/мес.
+											</span>
+												под 18%* годовых
+										</div>
+									</div>
 									<div class="offers__item-swiper swiper">
 										<div class="offers__item-swiper-wrapper swiper-wrapper">
 										  <div class="offers__item-slide swiper-slide">
@@ -534,7 +600,7 @@
 												под 18%* годовых
 											</div>
 										</div>
-										<div class="offers__item-info card__info">
+										<div class="offers__item-info card__info card__info_pc">
 											<span class="card__year">
 												2012
 											</span>
@@ -558,6 +624,9 @@
 											<span>
 												Передний
 											</span>
+										</div>
+										<div class="offers__item-date">
+											12 марта 2023
 										</div>
 									</div>
 									<div class="offers__item-btns">
@@ -570,6 +639,26 @@
 									</div>
 								</a>
 								<a href="#" class="offers__item">
+									<div class="offers__item-info_mobile">
+										<div class="offers__item-desc">
+											<div class="offers__item-name_mobile">
+												Peugeot 408, <span>2012</span>
+											</div>
+											<div class="offers__item-price-now_mobile price">
+												360 750
+											</div>
+											<div class="offers__item-price-before_mobile price">
+												555 000
+											</div>
+										</div>
+										<div class="offers__item-credit_mobile">
+											от 
+											<span>
+												15 173 р/мес.
+											</span>
+												под 18%* годовых
+										</div>
+									</div>
 									<div class="offers__item-swiper swiper">
 										<div class="offers__item-swiper-wrapper swiper-wrapper">
 										  <div class="offers__item-slide swiper-slide">
@@ -606,7 +695,7 @@
 												под 18%* годовых
 											</div>
 										</div>
-										<div class="offers__item-info card__info">
+										<div class="offers__item-info card__info card__info_pc">
 											<span class="card__year">
 												2012
 											</span>
@@ -630,6 +719,9 @@
 											<span>
 												Передний
 											</span>
+										</div>
+										<div class="offers__item-date">
+											12 марта 2023
 										</div>
 									</div>
 									<div class="offers__item-btns">
@@ -642,6 +734,26 @@
 									</div>
 								</a>
 								<a href="#" class="offers__item">
+									<div class="offers__item-info_mobile">
+										<div class="offers__item-desc">
+											<div class="offers__item-name_mobile">
+												Peugeot 408, <span>2012</span>
+											</div>
+											<div class="offers__item-price-now_mobile price">
+												360 750
+											</div>
+											<div class="offers__item-price-before_mobile price">
+												555 000
+											</div>
+										</div>
+										<div class="offers__item-credit_mobile">
+											от 
+											<span>
+												15 173 р/мес.
+											</span>
+												под 18%* годовых
+										</div>
+									</div>
 									<div class="offers__item-swiper swiper">
 										<div class="offers__item-swiper-wrapper swiper-wrapper">
 										  <div class="offers__item-slide swiper-slide">
@@ -678,7 +790,7 @@
 												под 18%* годовых
 											</div>
 										</div>
-										<div class="offers__item-info card__info">
+										<div class="offers__item-info card__info card__info_pc">
 											<span class="card__year">
 												2012
 											</span>
@@ -702,6 +814,9 @@
 											<span>
 												Передний
 											</span>
+										</div>
+										<div class="offers__item-date">
+											12 марта 2023
 										</div>
 									</div>
 									<div class="offers__item-btns">
@@ -752,6 +867,11 @@
 									<div class="pagination__item">
 										<img src="./img/icons/arrow_grey.svg" alt="back">
 									</div>
+								</div>
+							</div>
+							<div class="container">
+								<div class="offers__show-more btn btn_blue-border ">
+									Показать еще <span>16</span> из <span>4 341</span>
 								</div>
 							</div>
 						</div>

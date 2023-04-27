@@ -107,7 +107,7 @@ body {
 
 .wrapper {
   position: relative;
-  &-padding {
+  &_padding {
     padding-top: 30px;
   }
   @media(max-width:1023px) {
@@ -119,6 +119,14 @@ body {
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+  &_tablet {
+    @media(max-width:767px) {
+      max-width: 1310px;
+      margin: 0 auto;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
 }
 .logo {
   font-family: 'Rubik';
@@ -148,8 +156,24 @@ body {
     content: "";
 
   }
+    &_blue-border {
+      border: 1px solid #2C64EE;
+      border-radius: 10px;
+      color: #2C64EE;
+      @media(max-width:539px) {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        padding: 14px 5px;
+      }
+    }
 		&_blue {
       background: #2C64EE;
+      @media(max-width:539px) {
+        font-family: 'Rubik';
+        font-size: 14px;
+        line-height: 17px;
+      }
       &:hover {
         background: #274daf;
       }
@@ -195,6 +219,9 @@ body {
       padding: 11px 23px;
       font-size: 16px;
       line-height: 19px;
+      @media(max-width:539px) {
+        padding: 17.5px 17px;
+      }
       & span {
         font-weight: 400;
         font-size: 11px;
@@ -213,6 +240,10 @@ body {
         background-size: cover;
         width: 17px;
         height: 13px;
+        @media(max-width:539px) {
+          width: 19px;
+          height: 16px;
+        }
       }
     }
     &_dropdown {
@@ -223,6 +254,11 @@ body {
       color: #7E7E7E;
       font-size: 16px;
       line-height: 19px;
+      @media(max-width:539px) {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+      }
       &::before {
         background: url(../img/icons/Arrow.svg) 0 0 no-repeat;
         background-size: cover;
@@ -230,7 +266,15 @@ body {
         height: 11px;
       }
     }
-
+    &_reset {
+      gap: 9px;
+      &::before {
+        background: url(../img/icons/clear.svg) 0 0 no-repeat;
+        background-size: cover;
+        width: 26px;
+        height: 33px;
+      }
+    }
 }
 
 h2 {
@@ -240,6 +284,11 @@ h2 {
   font-size: 32px;
   line-height: 38px;
   color: #272727;
+  @media(max-width:539px) {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 h3 {
   font-family: 'Rubik';
@@ -248,6 +297,10 @@ h3 {
   font-size: 26px;
   line-height: 31px;
   color: #272727;
+  @media(max-width:539px) {
+    font-size: 20px;
+    line-height: 24px;
+  }
 }
 .field {
   padding: 17px 18px;
@@ -255,6 +308,7 @@ h3 {
   border-radius: 5px;
 }
 .price {
+  white-space: nowrap;
   &::after {
     content: "₽";
   }

@@ -28,7 +28,7 @@
             justify-content: space-between;
             border-radius: 9.56217px;
             gap: 10px;
-            padding: 43px 64px 25px 34px;
+            padding: 43px 64px 41px 34px;
             height: 100%;
             @media(max-width:767px) {
                 padding: 37px 23px 8px 18px;
@@ -39,7 +39,7 @@
             }
             @media(max-width:539px) {
                 width: 100%;
-                padding: 37px 25px 3px 19px;
+                padding: 37px 25px 12px 19px;
                 justify-content: space-between;
             }
         }
@@ -106,10 +106,14 @@
 		}
 
 		&__slide-pic {
+            flex: 0 0 34%;
             @media(max-width:899px) {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+            }
+            @media(max-width:539px) {
+                flex: 0 0 39%;
             }
             &_margin {
                 padding-right: 20px;
@@ -128,7 +132,7 @@
 		}
         &.swiper-horizontal>.swiper-pagination-bullets {
             bottom: 0px;
-            width: 320px;
+            width: 290px;
             display: flex;
             margin: 0 auto;
             left: 50%;
@@ -163,16 +167,73 @@
     padding-top: 60px;
     &_without-photo {
         padding-top: 73px;
+        @media(max-width:1023px) {
+            padding-top: 20px;
+        }
+        @media(max-width:539px) {
+            padding-top: 11px;
+        }
+        & .mileage__content{
+        @media(max-width:539px) {
+            margin-top: 23px;
+            column-gap: 16px;
+            row-gap: 9px;
+        }
+        }
+        & .mileage__item {
+            gap: 5px;
+            @media(max-width:1249px) {
+                flex: 0 0 calc(25% - 19px);
+            }
+            @media(max-width:1023px) {
+                flex: 0 0 calc(33.333% - 17px);
+            }
+            @media(max-width:539px) {
+                flex: 0 0 calc(50% - 9px);
+                padding: 11px 18px 11px 14px;
+            }
+            &.hidden {
+                @media(max-width:539px) {
+                    display: none;
+                }
+            }
+        }
+        & .mileage__item-name {
+            @media(max-width:539px) {
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 14px;
+            }
+        }
+        & .mileage__item-number {
+            @media(max-width:539px) {
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 14px;
+            }
+        }
         & .mileage__item-pic {
             display: none;
         }
         & .mileage__item {
             padding: 11px 7px 12px 14px;
+
         }
         & .btn_dropdown {
             padding: 11px 25px;
             gap: 7px;
             font-size: 18px;
+            @media(max-width:539px) {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 16px;
+                padding: 11px 37px 11px 33px;
+                gap: 4px;
+            }
+            @media(max-width:359px) {
+                padding: 11px;
+                flex: 1;
+            }
             &:before {
                 width: 11px;
                 height: 14px;
@@ -180,11 +241,18 @@
         }
         & .mileage__footer {
             gap: 10px;
+            @media(max-width:539px) {
+                gap: 16px;
+            }
         }
         & .btn_filter {
             border-radius: 5px;
             padding: 12px 29px;
             gap: 13px;
+            @media(max-width:539px) {
+                padding: 11px 25px 11px 32px;
+                gap: 6px;
+            }
         }
     }
     &_photos {
@@ -246,6 +314,10 @@
         justify-content: flex-end;
         margin-top: 17px;
         gap: 15px;
+        @media(max-width:539px) {
+            margin-top: 21px;
+            justify-content: flex-start;
+        }
     }
     &_filter {
     }
@@ -261,13 +333,26 @@
     border-radius: 5px;
     margin-top: 26px;
     padding: 50px 10px 16px 33px;
+    &_catalog {
+        & .filter__item {
+            @media(max-width:539px) {
+                display: none;
+            }
+        }
+    }
     &_markup {
         padding: 50px 10px 16px 17px;
+        @media(max-width:539px) {
+            display: none;
+        }
         & .filter__item {
             max-width: 244px;
+            @media(max-width:767px) {
+                max-width: none;
+            }
         }
         & .filter__footer-btn_reset {
-            padding: 18px 26px 17px 60px;
+            padding: 13px 26px 11px 23px;
         }
         & .filter__footer-btn_show {
             padding: 19px 28px;
@@ -292,7 +377,17 @@
         column-gap: 10px;
         justify-content: space-between;
         @media(max-width:767px) {
-            padding: 0px 20px;
+            padding: 0px 18px;
+            row-gap: 27px;
+        }
+        @media(max-width:539px) {
+            & .filter__item {
+                display: none;
+                flex: 0 0 100%;
+            }
+            & .filter__item_m {
+                display: flex;
+            }
         }
     }
 
@@ -306,17 +401,44 @@
         padding-bottom: 12px;
         display: flex;
         gap: 5px;
+        &::before {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #7E7E7E;
+            white-space: nowrap;
+        }
         @media(max-width:767px) {
             flex: 0 0 calc(50% - 13px);
+            padding-bottom: 7px;
         }
         @media(max-width:539px) {
-            display: none;
+            max-width: none;
         }
         & span {
             white-space: nowrap;
+            @media(max-width:539px) {
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 19px;
+                color: #7E7E7E;
+            }
         }
     }
-
+    &__item-mark {
+        &::before {
+            content: "Марки и модели";
+            display: none;
+        }
+        @media(max-width:539px) {
+            &::before {
+                display: block;
+            }
+            & span {
+                display: none;
+            }
+        }
+    }
     &__item-field {
         width: 100%;
         font-size: 16px;
@@ -332,19 +454,25 @@
         gap: 30px;
         @media(max-width:767px) {
             flex-direction: column;
-            padding: 0px 20px;
+            padding: 0px 17px;
+        }
+        @media(max-width:539px) {
+            margin-top: 22px;
         }
     }
 
     &__footer-btns {
         display: flex;
         gap: 8px;
+        @media(max-width:539px) {
+            flex-wrap: wrap;
+        }
     }
 
     &__footer-btn {
     }
     &__footer-btn_reset {
-        padding: 16px 23px 17px 50px;
+        padding: 10px 26px 10px 23px;
         @media(max-width:539px) {
             display: none;
         }
@@ -357,8 +485,18 @@
     }
     &__footer-btn_show {
         padding: 17px 33px;
+        @media(max-width:539px) {
+            padding: 17px 18px;
+        }
+        &::after {
+            content: "авто";
+            @media(max-width:539px) {
+                content: "предложений";
+            }
+        }
         & span {
             margin: 0 5px;
+            white-space: nowrap;
         }
     }
     &__footer_filter {
@@ -372,8 +510,14 @@
 
 .new {
     padding-top: 56px;
+    @media(max-width:539px) {
+        padding-top: 26px;
+    }
     &__content {
         margin-top: 26px;
+        @media(max-width:539px) {
+            margin-top: 12px;
+        }
     }
 
     &__item {
@@ -385,6 +529,9 @@
     column-gap: 17px;
     row-gap: 29px;
     flex-wrap: wrap;
+    @media(max-width:539px) {
+        row-gap: 22px;
+    }
 }
 .card {
     flex: 0 0 calc(20% - 14px);
@@ -409,6 +556,12 @@
         line-height: 19px;
         color: #0C2F85;
         margin-top: 10px;
+        @media(max-width:539px) {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+            margin-top: 7px;
+        }
     }
 
     &__info {
@@ -419,7 +572,13 @@
         display: flex;
         gap: 5px;
         align-items: center;
+        flex-wrap: wrap;
+        @media(max-width:539px) {
+            font-size: 14px;
+            line-height: 16px;
+        }
         & span {
+            white-space: nowrap;
             position: relative;
             &:not(:last-child) {
                 &::after {
@@ -444,11 +603,18 @@
         line-height: 19px;
         color: #272727;
         margin-top: 7px;
+        @media(max-width:539px) {
+            font-size: 14px;
+            line-height: 16px;
+        }
     }
 }
 
 .benefit-swiper {
     padding-top: 69px;
+    @media(max-width:539px) {
+        padding-top: 26px;
+    }
     &__wrapper {
     }
     &__slide {
@@ -463,6 +629,9 @@
         letter-spacing: 0.04em;
         position: relative;
         z-index: 2;
+        @media(max-width:539px) {
+            font-size: 16px;
+        }
         & p {
             display: block;
         }
@@ -473,6 +642,9 @@
         max-width: 177px;
         position: relative;
         z-index: 2;
+        @media(max-width:539px) {
+            margin-top: 11px;
+        }
         & img {
             width: 100%;
         }
@@ -492,6 +664,10 @@
             right: 0;
             font-size: 200px;
         }
+        @media(max-width:539px) {
+            font-weight: 400;
+            font-size: 158.222px;
+        }
     }
 }
 .benefit__item {
@@ -500,6 +676,13 @@
     position: relative;
     padding: 30px 20px 20px 41px;
     height: 100%;
+    @media(max-width:539px) {
+        border-radius: 15px;
+        padding: 22px 20px 4px 21px;
+        & .benefit-swiper__slide-pic {
+            max-width: 91px;
+        }
+    }
     &_red {
         & .benefit-swiper__slide-pic {
             max-width: 138px;
@@ -513,6 +696,7 @@
 }
 .types-swiper {
     display: none;
+    margin-bottom: 13px;
     @media(max-width:539px) {
         display: block;
     }
@@ -550,3 +734,13 @@
         height: 56px;
     }
 }
+
+.cards__show-more {
+    width: 100%;
+    display: none;
+    margin-top: 22px;
+    @media(max-width:539px) {
+        display: flex;
+    }
+}
+
