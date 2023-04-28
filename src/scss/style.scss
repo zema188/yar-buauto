@@ -107,11 +107,20 @@ body {
 
 .wrapper {
   position: relative;
+  &_car {
+    padding-top: 86px;
+    @media(max-width:1023px) {
+      padding-top: 65px;
+    }
+    @media(max-width:767px) {
+      padding-top: 80px;
+    }
+    @media(max-width:539px) {
+      padding-top: 43px;
+    }
+  }
   &_padding {
     padding-top: 30px;
-  }
-  @media(max-width:1023px) {
-    padding-top: 0;
   }
 }
 .container {
@@ -121,8 +130,6 @@ body {
   padding-right: 15px;
   &_tablet {
     @media(max-width:767px) {
-      max-width: 1310px;
-      margin: 0 auto;
       padding-left: 15px;
       padding-right: 15px;
     }
@@ -312,4 +319,7 @@ h3 {
   &::after {
     content: "₽";
   }
+}
+.close {
+  cursor: pointer;
 }

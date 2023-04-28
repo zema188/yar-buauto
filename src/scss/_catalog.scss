@@ -5,6 +5,12 @@
             padding-right: 0px;
         }
     }
+    &_credit {
+        @media(max-width:767px) {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
     &__body {
         display: flex;
         justify-content: space-between;
@@ -15,9 +21,18 @@
         }
         &_carloan {
             padding-top: 24px;
+            @media(max-width:539px) {
+                padding-top: 12px;
+            }
         }
         &_padding {
             padding-top: 30px;
+        }
+        &_car {
+            padding-top: 30px;
+            @media(max-width:539px) {
+                padding-top: 11px;
+            }
         }
     }
 
@@ -82,11 +97,10 @@
     }
     &__show-more {
         display: none;
-        display: flex;
         gap: 3px;
         width: 100%;
         margin-top: 13px;
-        @media(max-width:767px) {
+        @media(max-width:539px) {
             display: flex;
         }
     }
@@ -115,7 +129,7 @@
         @media(max-width:767px) {
             flex-wrap: wrap;
             gap: 7px;
-            padding: 19px 0px 12px 15px;
+            padding: 19px 0px 12px 0px;
             border-radius: 0px;
         }
         &:hover {
@@ -139,6 +153,7 @@
         @media(max-width:767px) {
             max-width: none;
             height: 160px;
+            padding-left: 15px;
         }
     }
 
@@ -186,6 +201,7 @@
         padding-top: 16px;
         @media(max-width:767px) {
             padding-top: 0px;
+            padding-left: 15px;
         }
     }
 
@@ -377,6 +393,7 @@
         flex: 0 0 100%;
         justify-content: space-between;
         padding-right: 15px;
+        padding-left: 15px;
         gap: 10px;
             @media(max-width:767px) {
                 display: flex;

@@ -1,36 +1,36 @@
 // "use strict"
 
 
-// function changerActive(list) {
-//     for(let i = 0; i < list.length; i++) {
-//         list[i].classList.remove('active')
-//     }
-//     list = 0
-// }
+function changerActive(list) {
+    for(let i = 0; i < list.length; i++) {
+        list[i].classList.remove('active')
+    }
+    list = 0
+}
 // // scroll document false
 
-// function is_touch_device() {
-//     return ('ontouchstart' in window);
-//   }
+function is_touch_device() {
+    return ('ontouchstart' in window);
+  }
   
-//   function bodyFixed() { //scroll - false
-//     if(is_touch_device()) {
-//       document.body.classList.add('fixed')
-//     } else {
-//       let x=window.scrollX;
-//       let y=window.scrollY;
-//       window.onscroll=function(){window.scrollTo(x, y);};
-//     }
-//   }
+  function bodyFixed() { //scroll - false
+    if(is_touch_device()) {
+      document.body.classList.add('fixed')
+    } else {
+      let x=window.scrollX;
+      let y=window.scrollY;
+      window.onscroll=function(){window.scrollTo(x, y);};
+    }
+  }
   
-//   function bodyNotFixed() { // scroll - true
-//     if(is_touch_device()) {
-//       document.body.classList.remove('fixed')
-//     } else {
-//       window.onscroll=function(){window.scrollTo()};
+  function bodyNotFixed() { // scroll - true
+    if(is_touch_device()) {
+      document.body.classList.remove('fixed')
+    } else {
+      window.onscroll=function(){window.scrollTo()};
   
-//     }
-//   }
+    }
+  }
 
   
 // //production block
@@ -148,31 +148,28 @@
 // }
 
 
-// //Popup close 
-// document.addEventListener("click",
-// function(event) {
-//   event = event || window.event;
-//   let target = event.target
-//   if(target.classList.contains('popup')) {
-//     target.classList.remove('active')
-//     bodyNotFixed()
-//     // bodyNotFixed()
-//   }
-//   if(target.classList.contains('completed__slide')) {
-//     target.closest(".popup").classList.remove('active')
-//     bodyNotFixed()
-//   }
-// }
-// )
+//Popup close 
+document.addEventListener("click",
+function(event) {
+  event = event || window.event;
+  let target = event.target
+  if(target.classList.contains('popup') && !target.classList.contains('gallery')) {
+    target.classList.remove('active')
+    bodyNotFixed()
+    // bodyNotFixed()
+  }
 
-// let popupClose = document.querySelectorAll('.popup-close')
-// for(let i=0 ; i < popupClose.length ; i++) {
-//     popupClose[i].addEventListener("click",
-//     function() {
-//         popupClose[i].closest('.popup').classList.remove('active')
-//         bodyNotFixed()
-//     })
-// }
+}
+)
+
+let popupClose = document.querySelectorAll('.popup-close')
+for(let i=0 ; i < popupClose.length ; i++) {
+    popupClose[i].addEventListener("click",
+    function() {
+        popupClose[i].closest('.popup').classList.remove('active')
+        bodyNotFixed()
+    })
+}
 
 // // create produce swiper
 // let produceListItem = document.querySelectorAll('.production__item-btn')
@@ -425,7 +422,8 @@ const benefitSwiperCar = new Swiper('.benefit-swiper-car', {
   },
   breakpoints: {
       0: {
-        slidesPerView: 1.5,
+        slidesPerView: 1.65,
+        spaceBetween: 8,
       },
       900: {
         slidesPerView: 2.5,
@@ -476,37 +474,11 @@ const offersItemSwiper = new Swiper('.offers__item-swiper', {
     768: {
       slidesPerView: 1,
     },
-}
+  }
 })
 
 
-//car-swiper
-//вертикальная слайдер
-var carSwiperThumb = new Swiper(".car-swiper-thumb", {
-  loop: true,
-  spaceBetween: 6,
-  slidesPerView: 5,
-  freeMode: true,
-  watchSlidesProgress: true,
-  direction: "vertical",
-});
-//горизонтальный слайдер
-var carSwiper = new Swiper(".car-swiper", {
-  loop: true,
-  spaceBetween: 10,
-  slidesPerView: 1,
-  navigation: {
-    nextEl: ".car-swiper__next",
-    prevEl: ".car-swiper__prev",
-  },
-  pagination: {
-    el: '.car-swiper__pagination',
-    type: 'fraction',
-  },
-  thumbs: {
-    swiper: carSwiperThumb,
-  },
-});
+
 
 
 //card other 
@@ -514,14 +486,34 @@ const otherSwiper = new Swiper('.other-swiper', {
   slidesPerView: 3,
   speed: 400,
   spaceBetween: 10,
+  breakpoints: {
+    0: {
+      slidesPerView: 2.2
+    },
+    768: {
+      slidesPerView: 3,
+    },
+  }
 })
 
 
 //advantages swiper 
 const advantagesSwiper = new Swiper('.advantages-swiper', {
-  slidesPerView: 3,
+  // slidesPerView: 3,
   speed: 400,
   spaceBetween: 25,
+  slidesPerView: "auto",
+  breakpoints: {
+    0: {
+      spaceBetween: 14,
+    },
+    540: {
+      spaceBetween: 14,
+    },
+    768: {
+      spaceBetween: 25,
+    },
+  }
 })
 
 
@@ -530,6 +522,32 @@ const partnersSwiper = new Swiper('.partners-swiper', {
   slidesPerView: 3.5,
   speed: 400,
   spaceBetween: 14,
+  breakpoints: {
+    0: {
+      slidesPerView: "auto",
+      spaceBetween: 14,
+    },
+    768: {
+      slidesPerView: 3.5,
+      spaceBetween: 14,
+    },
+  }
+})
+
+
+//parnters swiper 
+const characteristicsSwiper = new Swiper('.characteristics-swiper', {
+  speed: 400,
+  breakpoints: {
+    0: {
+      slidesPerView: 'auto',
+      spaceBetween: 5,
+    },
+    768: {
+      slidesPerView: 'auto',
+      spaceBetween: 18,
+    },
+  }
 })
 
 
@@ -546,15 +564,23 @@ if(carEquipmentItem.length) {
 
 
 //car page car__discount
-if(document.querySelectorAll('.car__discount-btn').length) {
-  let carDiscountBtn = document.querySelector('.car__discount-btn')
-  let discount = document.querySelector('.car__discount')
+if(document.querySelectorAll('.car__discount-btn_pc').length) {
+  let carDiscountBtn = document.querySelector('.car__discount-btn_pc')
+  let discount = document.querySelector('.car__discount_pc')
   carDiscountBtn.onclick = function() {
     this.classList.toggle('active')
     discount.classList.toggle('active')
   }
 }
-
+//car page car__discount mobile
+if(document.querySelectorAll('.car__discount-btn_mob').length) {
+  let carDiscountBtn = document.querySelector('.car__discount-btn_mob')
+  let discount = document.querySelector('.car__discount_mobile')
+  carDiscountBtn.onclick = function() {
+    this.classList.toggle('active')
+    discount.classList.toggle('active')
+  }
+}
 
 if(document.querySelectorAll('.credit__form').length) {
   // рассчет при загрузке страницы
@@ -654,25 +680,150 @@ function calc() {
   let creditResult = document.querySelector('.credit-result')
   
   creditResult.innerHTML = res + ' ₽'
-
-
-
-
-
-
-
-  
-  // res = A = (price * i) / (1 - (1 + i)^(-months))
-  // res = A = (P * i) / (1 - (1 + i)^(-n))
-
-  // где:
-  // A - ежемесячный платеж
-  // P - общая цена
-  // i - месячная процентная ставка (годовая ставка / 12)
-  // n - количество месяцев
 }
 
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
 
+
+
+
+
+//car-swiper
+function createCarSwiper(numberSlide) {
+  let carSwiper = new Swiper(".car-swiper", {
+    spaceBetween: 10,
+    slidesPerView: 1,
+    initialSlide: numberSlide,
+    navigation: {
+      nextEl: ".car-swiper__next",
+      prevEl: ".car-swiper__prev",
+    },
+    pagination: {
+      el: '.car-swiper__pagination',
+      type: 'fraction',
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1.01
+      },
+      768: {
+        slidesPerView: 1,
+      },
+    }
+  });
+}
+
+
+
+
+//car page текст на последнем фото 
+
+if(document.querySelectorAll('.car__slider ').length) {
+  createCarSwiper(0)
+
+
+
+  let slider = document.querySelector('.car__slider')
+  let quantity = slider.querySelectorAll('.car-swiper__slide')
+  let thumbSlide = document.querySelectorAll('.car-swiper-thumb__slide')
+
+  let block = `<span>+ еще ${quantity.length - thumbSlide.length} фото</span>`
+  thumbSlide[thumbSlide.length-1].classList.add('notZoom')
+  thumbSlide[thumbSlide.length-1].innerHTML+= block
+
+
+
+// смена фото при наведении 
+
+  for(let i = 0; i < thumbSlide.length; i++) {
+    thumbSlide[i].addEventListener('mouseover', function() {
+      if(!this.classList.contains('notZoom')) {
+        createCarSwiper(i)
+      }
+    })
+  }
+
+
+
+}
+
+//gallery swiper
+if(document.querySelectorAll('.gallery__swiper').length) {
+  const gallery = document.querySelector('.gallery')
+  const miniImage = gallery.querySelectorAll('.gallery__swiper-slide')
+  const bigImage = gallery.querySelectorAll('.gallery__list-item')
+  const gallerySwiperList = gallery.querySelector('.gallery__swiper-list')
+  const galleryPrevBtn = gallery.querySelector('.gallery__swiper-prev')
+  const galleryNextBtn = gallery.querySelector('.gallery__swiper-next')
+  let activeId = 0
+
+  // открыть галарею по клику на фото
+  const openGallery = document.querySelectorAll('.open-gallery')
+  for(let i = 0; i < openGallery.length; i++) {
+    openGallery[i].addEventListener('click', function() {
+      gallery.classList.add('active')
+      bodyFixed()
+    })
+  }
+
+
+  //скролл по кнопкам
+  galleryPrevBtn.onclick = function() {
+    if(activeId > 0) {
+      changeActiveSlide(-1)
+    } else {
+      changeActiveSlide(miniImage.length-1)
+    }
+  }
+  galleryNextBtn.onclick = function() {
+    if(activeId < miniImage.length - 1) {
+      changeActiveSlide(1)
+    } else {
+      changeActiveSlide(-miniImage.length+1)
+    }
+  }
+
+  function changeActiveSlide(side) {
+      activeId += side
+      miniImage[activeId].scrollIntoView();
+      bigImage[activeId].scrollIntoView();
+      changerActive(miniImage)
+      miniImage[activeId].classList.add('active')
+
+  }
+  //scroll by click in mini image
+  for(let i = 0; i < miniImage.length; i++) {
+    miniImage[i].addEventListener('click', function() {
+      changerActive(miniImage)
+      this.classList.add('active')
+      activeId = i
+      bigImage[i].scrollIntoView();
+    })
+  }
+
+
+  // change mini images by scroll
+  gallery.addEventListener('scroll', function(){
+    for(let i = 0; i < bigImage.length; i++) {
+      checkIfElementIs100pxBelowViewport(bigImage[i],i)
+    }
+  });
+
+
+  function checkIfElementIs100pxBelowViewport(element,number) {
+    const rect = element.getBoundingClientRect();
+    const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+    const isAboveMidpoint = rect.top < windowHeight / 2;
+    const isBelowMidpoint = rect.bottom > windowHeight / 2;
+  
+    if (isAboveMidpoint && isBelowMidpoint) {
+      activeId = number
+      changerActive(miniImage)
+      miniImage[number].classList.add('active')
+      miniImage[number].scrollIntoView();
+    }
+  }
+
+}

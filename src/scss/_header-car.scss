@@ -1,8 +1,39 @@
+.header-car-w {
+  background: #fff;
+  position: fixed;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  left: 0;
+}
+
 .header-car {
   display: flex;
   justify-content: space-between;
   padding-top: 16px;
   padding-bottom: 16px;
+  gap: 22px;
+  @media(max-width:1023px) {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .back {
+    @media(max-width:1023px) {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translate(0,-50%);
+    }
+    @media(max-width:539px) {
+      transform: translate(0,-75%);
+    }
+  }
+  &__back {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
   &__name {
     font-family: 'Rubik';
     font-weight: 600;
@@ -11,6 +42,23 @@
     display: flex;
     align-items: center;
     gap: 22px;
+    flex: 1;
+    justify-content: space-between;
+    max-width: 846px;
+    @media(max-width:1023px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 5px;
+      justify-content: flex-start;
+      padding-left: 55px;
+    }
+    @media(max-width:539px) {
+      padding-left: 20px;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 14px;
+      color: #7E7E7E;
+    }
   }
 
   &__price {
@@ -24,6 +72,13 @@
   &__price-now {
     font-size: 26px;
     line-height: 31px;
+    @media(max-width:539px) {
+      font-family: 'Roboto';
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 21px;
+      color: #272727;
+    }
   }
 
   &__price-before {
@@ -31,6 +86,9 @@
     line-height: 26px;
     text-decoration: line-through;
     color: #A0A0A0;
+    @media(max-width:1023px) {
+      display: none;
+    }
   }
 }
 .header {
@@ -42,5 +100,33 @@
   }
 
   &__menu {
+  }
+}
+
+.header_car {
+  & .header__logo {
+    &::before {
+      content: "автосалон";
+      @media(max-width:539px) {
+        display: none;
+      }
+    }
+    & img {
+      display: none;
+      @media(max-width:539px) {
+        display: block;
+      }
+    }
+  }
+}
+.header__content-action {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.header__back_mobile {
+  display: none;
+  @media(max-width:539px) {
+    display: block;
   }
 }

@@ -10,12 +10,24 @@
 </head>
 <body>	
 	<div class="wrapper wrapper_padding">
-		@@include("./header.html")
-		<div class="markup container">
+		@@include("./header.html", {
+			"item1": "<a href=\"catalog.html\" class=\"header__nav-item \">Автомобили</a>",
+			"item2": "<a href=\"credit.html\" class=\"header__nav-item active\">Автокредит</a>",
+			"item3": "<a href=\"#\" class=\"header__nav-item \">Trade-in</a>",
+			"item4": "<a href=\"#\" class=\"header__nav-item \">Выкуп</a>",
+			"item5": "<a href=\"#\" class=\"header__nav-item \">Акции</a>",
+			"item6": "<a href=\"#\" class=\"header__nav-item \">Контакты</a>"
+		})
+		<div class="markup markup_credit container">
 			<div class="markup__body markup__body_carloan">
 				<div class="markup__content">
 					<div class="carloan">
-						<div class="carloan__preview">
+						<div class="container_tablet">
+							<h4>
+								Автокредит от 4.9%
+							</h4>
+						</div>
+						<div class="carloan__preview container_tablet">
 							<div class="carloan__preview-content">
 								<div class="carloan__text">
 									<div class="carloan__title">
@@ -25,35 +37,40 @@
 										</span>
 									</div>
 									<div class="carloan__subtitle">
-										Рассчитайте кредит онлайн и получите предварительное решение за 40 секунд
+										Рассчитайте кредит онлайн и получите предварительное <span>решение за 40 секунд</span>
 									</div>
 								</div>
 								<div class="carloan__pic">
-									<img src="./img/pic/car_credit.png" alt="car">
+									<picture>
+										<source media="(max-width: 539px)" srcset="./img/pic/car_credit_mob.png">
+										<img src="./img/pic/car_credit.png" alt="car">
+									</picture>
 								</div>
 								<img class="carloan__pic-coin" src="./img/pic/coint.png" alt="coin">
 							</div>
-							<p class="carloan__preview-lead">
+							<p class="carloan__preview-lead lead">
 								Мы возьмем на себя подбор оптимальной кредитной программы и оформление сопутствующих документов. Вам остается лишь выбрать подходящий автомобиль и заполнить кредитную заявку для предварительного одобрения.
 							</p>
 						</div>
 						<div class="carloan__advantages">
-							<h3>
-								Преимущества автокредита
-							</h3>
+							<div class="container_tablet">
+								<h3>
+									Преимущества автокредита
+								</h3>
+							</div>
 							<div class="advantages-swiper swiper">
 								<div class="swiper-wrapper">
 									<div class="advantages-swiper__slide swiper-slide">
 										<div class="advantages__slide-pic">
 											<img src="./img/icons/first.svg" alt="guarantee">
 										</div>
-										Первый взнос от 0%
+										<p>Первый взнос <span>от 0%</span></p>
 									</div>
 									<div class="advantages-swiper__slide swiper-slide">
 										<div class="advantages__slide-pic">
 											<img src="./img/icons/guarantee.svg" alt="guarantee">
 										</div>
-										Гарантия на авто 1 год
+										<p>Гарантия на авто <span>1 год</span></p>
 									</div>
 									<div class="advantages-swiper__slide swiper-slide">
 										<div class="advantages__slide-pic">
@@ -63,17 +80,19 @@
 									</div>
 								</div>
 							</div>
-							<p class="advantages__lead">
+							<p class="advantages__lead lead container_tablet">
 								После звонка кредитного эксперта приезжайте в автосалон и оформляйте автокредит прямо в салоне без необходимости обращения в отделение банка-партнера.
 							</p>
-							<p class="advantages__lead">
+							<p class="advantages__lead lead container_tablet">
 								Годовая ставка автокредита от 4.9% и зависит от конкретного банка, суммы займа и кредитной программы. Минимальный срок погашения от 61 дня, максимальный - 96 месяцев. При этом любые дополнительные комисси автосалоном не взимаются.
 							</p>
 						</div>
 						<div class="carloan__partners">
-							<h3>
-								Банки партнеры								
-							</h3>
+							<div class="container_tablet">
+								<h3>
+									Банки партнеры								
+								</h3>
+							</div>
 							<div class="partners-swiper swiper">
 								<div class="swiper-wrapper">
 									<div class="partners-swiper__slide swiper-slide">
@@ -94,10 +113,13 @@
 					</div>
 				</div>
 				<div class="markup__bar">
-					<div class="credit credit__col-item">
+					<div class="credit credit__col-item credit_carloan">
 						<h3>
 							Купить авто в кредит
 						</h3>
+						<div class="credit__subtitle_mobile">
+							Форма заявки
+						</div>
 						<form class="credit__form">
 							<div class="credit__block credit__block_filter">
 								<div class="credit__subtitle">
@@ -176,7 +198,9 @@
 				</div>
 			</div>
 		</div>
-		@@include("./footer.html")
+		@@include("./footer.html", {
+			"item1": "<div class=\"footer-w footer-w_credit\">"
+		})
 	</div>
 
 	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
