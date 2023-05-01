@@ -306,9 +306,7 @@
             padding-bottom: 12px;
             box-shadow: 0px 3px 7px rgba(18, 18, 18, 0.07);
         }
-        &:not(:last-child) {
-            box-shadow: 0px 3px 7px rgba(18, 18, 18, 0.07);
-        }
+                box-shadow: 0px 3px 7px rgba(18, 18, 18, 0.07);
         &:not(:first-child) {
             margin-top: 10px;
             @media(max-width:539px) {
@@ -619,24 +617,52 @@
         border-radius: 5px;
         padding: 33px;
         display: none;
+        z-index: 5;
         @media(max-width:1199px) {
             padding: 15px;
+        }
+        @media(max-width:1023px) {
+            box-shadow: none;
+            padding: 0px;
+            border-radius: 25px 25px 0px 0px;
         }
         &.active {
             display: block;
         }
         &_margin {
             margin-bottom: 53px;
+            @media(max-width:539px) {
+                margin-bottom: 0px;
+            }
         }
         &_mobile {
         }
+        &_pc {
+            &.active {
+                @media(max-width:1023px) {
+                    display: none;
+                }
+            }
+        }
     }
-
+    &__discount-content {
+        @media(max-width:539px) {
+            z-index: 105;
+            position: relative;
+        }
+    }
     &__discount-subtitle {
         font-weight: 600;
         font-size: 26px;
         line-height: 31px;
         margin-bottom: 25px;
+        @media(max-width:539px) {
+            font-family: 'Rubik';
+            font-size: 22px;
+            line-height: 26px;
+            margin-bottom: 20px;
+
+        }
     }
     &__discount-list {
         margin-bottom: 20px;
@@ -649,6 +675,8 @@
         justify-content: space-between;
         align-items: center;
         gap: 10px;
+        @media(max-width:539px) {
+        }
         &:not(:last-child) {
             margin-bottom: 16px;
             padding-bottom: 12px;
@@ -674,6 +702,7 @@
         margin-top: 18px;
     }
 }
+
 .btn {
 
     &_green {
@@ -914,21 +943,140 @@
     }
 }
 .credit_car {
+    display: block;
     @media(max-width:1199px) {
         padding: 15px;
     }
     @media(max-width:1023px) {
         display: none;
+        position: fixed;
+        height: 100vh;
+        overflow: auto;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        z-index: 10;
+        border-radius: 0px;
+        padding: 0px;
+        & h3 {
+            display: none;
+        }
+        & h4 {
+            font-family: 'Rubik';
+            font-weight: 600;
+            font-size: 22px;
+            line-height: 26px;
+        }
+        & .credit__subtitle {
+            padding: 0px 15px;
+        }
+        & .credit__form {
+            padding: 0px 15px 50px 15px;
+        }
+        & .credit__btn-submit {
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        & .credit__disc {
+            text-align: center;
+        }
+    }
+    @media(max-width:539px) {
+        & .credit__btn-submit {
+            max-width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        & .credit__disc {
+            text-align: start;
+        }
+    }
+    & .popup-close {
+        position: static;
+        background: url(../img/icons/close_black.svg) 0 0 no-repeat;
+        background-position: center;
+    }
+}
+.credit {
+
+    &__info {
+
+        &_mobile {
+            gap: 15px;
+            background: #FFFFFF;
+            box-shadow: 2px 4px 6px 4px rgba(0, 0, 0, 0.04);
+            border-radius: 12px;
+            margin-top: 26px;
+            padding: 10px;
+            display: none;
+            @media(max-width:1023px) {
+                display: flex;
+            }
+        }
+    }
+
+    &__info-pic {
+        max-width: 260px;
+        @media(max-width:399px) {
+            max-width: 181px;
+        }
+        & img {
+            width: 100%;
+            border-radius: 12px;
+        }
+    }
+
+    &__info-text {
+    }
+
+    &__info-name {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        margin-top: 8px;
+        @media(max-width:399px) {
+            margin-top: 0px;
+        }
+    }
+
+    &__info-price-now {
+        font-weight: 800;
+        font-size: 18.414px;
+        line-height: 22px;
+        color: #12BC3A;
+        margin-top: 10px;
+    }
+
+    &__info-price-before {
+        font-weight: 400;
+        font-size: 13.8105px;
+        line-height: 16px;
+        text-decoration: line-through;
+        color: #8D8D8D;
+        margin-top: 8px;
     }
 }
 
+.credit__header {
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #FAFAFA 0%, #FCFCFC 100%);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(6px);
+    padding: 38px 15px 15px;
+    display: none;
+    @media(max-width:1023px) {
+        display: flex;
+    }
+}
 .car__discount_mobile {
-    margin-top: 20px;
-    max-width: 400px;
-    margin-left: 15px;
-    margin-right: 15px;
+    @media(max-width:539px) {
+        @include popup-down;
+    }
     &.active {
-        @media(min-width:1024px) {
+        @media(min-width:1023px) {
             display: none;
         }
     }
@@ -1172,6 +1320,8 @@ input[type=range] {
         }
     }
     &__list-item {
+        display: flex;
+        justify-content: center;
         & img {
             width: 100%;
             object-fit: cover;
@@ -1345,8 +1495,98 @@ input[type=range] {
             content: "Показать телефон";
             white-space: nowrap;
             @media(max-width:539px) {
-            content: "Позвонить";
+                content: "Позвонить";
             }
         }
+    }
+}
+.car {
+
+    &__discount-header {
+        display: none;
+        border-bottom: 0.7px solid #EAE9EF;
+        padding-bottom: 14px;
+        margin-bottom: 22px;
+        @media(max-width:539px) {
+            display: block;
+        }
+    }
+
+    &__discount-header-title {
+        font-family: 'Rubik';
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 26px;
+    }
+
+    &__discount-header-price-now {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 38px;
+        margin-top: 14px;
+    }
+
+    &__discount-header-subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 16px;
+        color: #7E7E7E;
+        margin-top: 18px;
+    }
+
+    &__discount-header-price-before {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 19px;
+        margin-top: 5px;
+    }
+}
+.price {
+}
+
+.car {
+    &__footer-fixed {
+        position: fixed;
+        width: 100%;
+        background: #fff;
+        gap: 8px;
+        padding: 15px;
+        bottom: 0px;
+        left: 0;
+        z-index: 9;
+        justify-content: center;
+        display: none;
+        @media(max-width:539px) {
+            display: flex;
+        }
+    }
+
+    &__footer-buy-btn {
+        background: #E82B2B;
+        border-radius: 10px;
+        font-family: 'Rubik';
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        text-align: center;
+        color: #FFFFFF;
+        padding: 12px 15px;
+        & span {
+            display: block;
+            font-size: 16px;
+            line-height: 19px;
+            margin-bottom: 4px;
+        }
+    }
+
+    &__footer-buy-call {
+        background: url(../img/icons/phone_call.svg), #12BC3A ;
+        background-size: cover;
+        background-size: 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        max-width: 61px;
+        height: auto;
+        padding: 20px 30.5px;
     }
 }

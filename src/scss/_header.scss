@@ -32,6 +32,7 @@
             border-radius: 10px;
             padding: 5px;
             justify-content: space-between;
+            gap: 1px;
             @media(max-width:1023px) {
                 display: none;
             }
@@ -43,13 +44,18 @@
             line-height: 19px;
             color: #7E7E7E;
             border-radius: 5px;
-            padding: 13px 17px;
+            padding: 13px 16px;
             white-space: nowrap;
+            transition: .2s;
             @media(max-width:1199px) {
                 padding: 13px 9px;
             }
             &.active {
                 background: #FFFFFF;
+            }
+            &:hover {
+              background-color: #e7e9f0;
+              color: #67708e ;
             }
 		}
 
@@ -59,6 +65,9 @@
             }
             @media(max-width:1023px) {
                 background: none;
+                &:hover {
+                  background: none;
+                }
                 &::before {
                     display: none;
                 }
@@ -123,18 +132,20 @@
     left: 7px;
   }
   .nav-icon.open span:nth-child(1) {
-    top: 9px;
+    top: 5px;
     transform: rotate(135deg);
     max-width: 30px;
+    left: 0px;
   }
   .nav-icon.open span:nth-child(2) {
     opacity: 0;
     left: -60px;
   }
   .nav-icon.open span:nth-child(3) {
-    top: 9px;
+    top: 5px;
     transform: rotate(-135deg);
     max-width: 30px;
+    left: 1px;
   }
   .header__menu {
     display: none;
@@ -142,3 +153,47 @@
           display: block;
     }
   }
+
+
+  .header-m {
+    background: #c5d1ef;
+    max-width: 290px;
+    width: 63%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 10;
+    left: -100%;
+    transition: .4s;
+    &.active {
+      left: 0;
+    }
+		&__content {
+      padding: 17px 15px 0px;
+		}
+
+		&__list {
+      display: flex;
+      flex-direction: column;
+		}
+    & .header__nav-item {
+      width: fit-content;
+      padding: 0px;
+      color: #000;
+      margin-bottom: 20px;
+      &.active {
+        background: none;
+      }
+    }
+    &__close {
+      position: absolute;
+      right: 10px;
+      top: 19px;
+    }
+    &__logo {
+      width: fit-content;
+      display: block;
+      margin-bottom: 35px;
+    }
+}

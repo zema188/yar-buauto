@@ -126,26 +126,193 @@
 									Выберите желаемый автомобиль
 								</div>
 								<div class="credit__filter">
-									<input class="credit__filter-item " value="Марка">
-									<input class="credit__filter-item lock" value="Модель">
-									<input class="credit__filter-item lock" value="Объявления">
+									<div class="additionally">
+										<div class="additionally__list" >
+											<div class="additionally__item " name="mark">
+												<div class="additionally__subtilte">
+													Марка<span></span>
+												</div>
+												<div class="additionally__item-content">
+													<div class="additionally__item-subtitle_mobile">
+														Марка
+													</div>
+													<ul>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+													</ul>
+													<div class="additionally__item-close close">
+
+													</div>		
+												</div>
+											</div>
+											<div class="additionally__item lock " name="model">
+												<div class="additionally__subtilte">
+													Модель<span></span>
+												</div>
+												<div class="additionally__item-content">
+													<div class="additionally__item-subtitle_mobile">
+														Модель
+													</div>
+													<ul>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+													</ul>
+													<div class="additionally__item-close close">
+
+													</div>		
+												</div>
+											</div>
+											<div class="additionally__item lock" name="ads">
+												<div class="additionally__subtilte">
+													Объявления<span></span>
+												</div>
+												<div class="additionally__item-content">
+													<div class="additionally__item-subtitle_mobile">
+														Объявления
+													</div>
+													<ul>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+														<li>
+															Chery
+														</li>
+														<li>
+															Chevrolet
+														</li>
+														<li>
+															Citroen
+														</li>
+													</ul>
+													<div class="additionally__item-close close">
+
+													</div>		
+												</div>
+											</div>
+											<div class="additionally__item lock hidden" name="ads-item">
+												<div class="additionally__item-pic">
+													<img src="./img/pic/car.png" alt="car">
+												</div>
+												<div class="additionally__item-info">
+													<div class="additionally__item-price-now price car__price-now">
+														1 555 750
+													</div>
+													<div class="additionally__item-price-before price">
+														1 855 900
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
-							<div class="credit__subtitle">
-								Выберите кредитные условия
-							</div>
-							<div class="credit__calc credit__block">
+							<div class="credit__calc credit__block additionally__item hidden" name="calc">
+								<div class="credit__subtitle">
+									Выберите кредитные условия
+								</div>
 								<div class="credit__item-calc">
 									<div class="credit__item">
 										<span class="credit__item-subtitle">
 											Желаемый срок кредита
 										</span>
-										<input class="credit__field" value="36 мес">
-										<input class="credit__field" type="range" min="0" max="96" value="48">
+										<input class="credit__field" range-for="months" suffix="мес." min="1" max="96" value="11 мес.">
+										<input class="credit__field" range-name="months" suffix="мес." type="range" min="1" max="96" value="11" step="1">
 									 </div>
 									 <div class="credit__item-footer">
-										<span>2 мес</span>
-										<span>80%</span>
+										<span>1 мес</span>
+										<span>96 мес</span>
 									 </div>
 								</div>
 								<div class="credit__item-calc">
@@ -153,12 +320,12 @@
 										<span class="credit__item-subtitle">
 											Первоначальный взнос
 										</span>
-										<input class="credit__field" value="34 500 ₽">
-										<input class="credit__field" type="range" min="0" max="100" value="50">
+										<input class="credit__field" range-for="deposit" suffix="₽" min="0" max="1000000" value="100 000 ₽">
+										<input class="credit__field" range-name="deposit" suffix="₽" type="range" min="0" max="1000000" value="100000" step="1000">
 									 </div>
 									 <div class="credit__item-footer">
-										<span>2 мес</span>
-										<span>80%</span>
+										<span>0%</span>
+										<span>100%</span>
 									 </div>
 								</div>
 								<div class="credit__calc-res">
@@ -166,7 +333,7 @@
 										<div class="credit__calc-desc-subtitle">
 											Ежемесячный платеж:
 										</div>
-										<span>
+										<span class="credit-result">
 											4 230 ₽
 										</span>
 									</div>
@@ -174,13 +341,13 @@
 										<div class="credit__calc-desc-subtitle">
 											Годовая ставка:
 										</div>
-										<span>
+										<span class="credit-year-procent">
 											4.9%
 										</span>
 									</div>
 								</div>
 							</div>
-							<div class="credit__block">
+							<div class="credit__block additionally__item hidden" name="user-data-credit">
 								<div class="credit__subtitle">
 									Укажите свои данные
 								</div>

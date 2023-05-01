@@ -1,6 +1,6 @@
 .header-car-w {
   background: #fff;
-  position: fixed;
+  position: sticky;
   top: 0;
   z-index: 5;
   width: 100%;
@@ -97,25 +97,28 @@
   }
 
   &__phone-btn {
+    @media(max-width:539px) {
+      &:hover {
+        background: none;
+      }
+    }
   }
 
   &__menu {
   }
 }
 
-.header_car {
-  & .header__logo {
-    &::before {
-      content: "автосалон";
-      @media(max-width:539px) {
-        display: none;
-      }
-    }
-    & img {
+.header__logo {
+  &::before {
+    content: "автосалон";
+    @media(max-width:1023px) {
       display: none;
-      @media(max-width:539px) {
-        display: block;
-      }
+    }
+  }
+  & img {
+    display: none;
+    @media(max-width:1023px) {
+      display: block;
     }
   }
 }
@@ -128,5 +131,16 @@
   display: none;
   @media(max-width:539px) {
     display: block;
+  }
+}
+.car__discount_mobile {
+  @media(max-width:1023px) {
+    @include popup;
+  }
+}
+.car__discount-content {
+  @media(max-width:1023px) {
+    z-index: 105;
+    position: relative;
   }
 }

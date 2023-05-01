@@ -428,9 +428,100 @@
 						62
 					</div>
 				</a>
+				<a href="#" class="mileage__item hidden">
+					<div class="mileage__item-side">
+						<div class="mileage__item-pic">
+							<img src="./img/pic/chery.png" alt="Chery">
+						</div>
+						<div class="mileage__item-name">
+							Chery
+						</div>
+					</div>
+					<div class="mileage__item-number">
+						30
+					</div>
+				</a>
+				<a href="#" class="mileage__item hidden">
+					<div class="mileage__item-side">
+						<div class="mileage__item-pic">
+							<img src="./img/pic/Hyundai.png" alt="Hyundai">
+						</div>
+						<div class="mileage__item-name">
+							Hyundai
+						</div>
+					</div>
+					<div class="mileage__item-number">
+						596
+					</div>
+				</a>
+				<a href="#" class="mileage__item hidden">
+					<div class="mileage__item-side">
+						<div class="mileage__item-pic">
+							<img src="./img/pic/Peugeot.png" alt="Peugeot">
+						</div>
+						<div class="mileage__item-name">
+							Peugeot
+						</div>
+					</div>
+					<div class="mileage__item-number">
+						33
+					</div>
+				</a>
+				<a href="#" class="mileage__item hidden">
+					<div class="mileage__item-side">
+						<div class="mileage__item-pic">
+							<img src="./img/pic/Chevrolet.png" alt="Chevrolet">
+						</div>
+						<div class="mileage__item-name">
+							Chevrolet
+						</div>
+					</div>
+					<div class="mileage__item-number">
+						61
+					</div>	
+				</a>
+				<a href="#" class="mileage__item hidden">
+					<div class="mileage__item-side">
+						<div class="mileage__item-pic">
+							<img src="./img/pic/Ravon.png" alt="Ravon">
+						</div>
+						<div class="mileage__item-name">
+							Ravon
+						</div>
+					</div>
+					<div class="mileage__item-number">
+						6
+					</div>
+				</a>
+				<a href="#" class="mileage__item hidden">
+					<div class="mileage__item-side">
+						<div class="mileage__item-pic">
+							<img src="./img/pic/Great Wall.png" alt="Great Wall">
+						</div>
+						<div class="mileage__item-name">
+							Great Wall
+						</div>
+					</div>
+					<div class="mileage__item-number">
+						8
+					</div>
+				</a>
+				<a href="#" class="mileage__item hidden">
+					<div class="mileage__item-side">
+						<div class="mileage__item-pic">
+							<img src="./img/pic/Mazda.png" alt="Mazda">
+						</div>
+						<div class="mileage__item-name">
+							Mazda
+						</div>
+					</div>
+					<div class="mileage__item-number">
+						192
+					</div>
+				</a>
 			</div>
 			<div class="mileage__footer">
-				<button class="mileage__btn btn btn_blue btn_filter">
+				<button class="mileage__btn btn btn_blue btn_filter btn-show-filter">
 					Фильтр
 					<span>2</span>
 				</button>
@@ -440,8 +531,18 @@
 			</div>
 		</div>
 		<div class="container">
-			<div class="filter ">
+			<div class="filter active ">
 				<div class="filter__content">
+					<div class="filter__header">
+						<div class="filter__header-close popup-close">
+						</div>
+						<div class="filter__header-title">
+							Параметры
+						</div>
+						<div class="filter__header-reset-btn reset-filter btn_reset">
+							Сбросить
+						</div>
+					</div>
 					<div class="types-swiper swiper">
 						<div class="types-swiper__wrapper swiper-wrapper">
 						  <div class="types-swiper__slide swiper-slide">
@@ -482,41 +583,611 @@
 						  </div>
 						</div>
 					  </div>
-					<div class="filter__item filter__item_m filter__item-mark">
-						<span>Марка, модель</span>
-						<input class="filter__item-field">
+					<div class="filter__item filter__item_m filter__item_mark">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Марка, модель
+								<span class="new-text">
+								</span>
+							</div>
+						</div>
+						<div class="filter__item-content">
+							<div class="filter__item-content-title">
+								Марка, модель
+							</div>
+							<div class="blur">
+								<div class="filter__item-list list-checkbox">
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>
+											Мини
+										</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Хетчбэки</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Седаны</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Универсалы</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Кроссоверы</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Вэны</span>
+									</label>
+								</div>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
 					<div class="filter__item filter__item_m">
-						<span>Цена, ₽</span>
-						<input class="filter__item-field">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Цена, ₽<span class="new-text"></span></div>
+							
+						</div>
+						<div class="filter__item-content list-inputs">
+							<div class="filter__item-content-title">
+								Цена
+							</div>
+							<div class="filter__item-content-top ">
+								<b>Мин.
+								<input type="number" class="filter__item-input" name="от">
+								</b>
+								<b>Макс.
+								<input type="number" class="filter__item-input" name="до">
+								</b>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="filter__item">
-						<span>Год выпуска</span>
-						<input class="filter__item-field">
+					<div class="filter__item filter__item_year">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Год выпуска<span class="new-text"></span></div>
+							
+						</div>
+						<div class="filter__item-content filter__item-content_year">
+							<div class="filter__item-content-title">
+								Год выпуска
+							</div>
+							<div class="filter__item-content-top filter__item-content-top_grey">
+								<b>От</b>
+								<b>До</b>
+							</div>
+							<div class="blur">
+								<div class="filter__item-list filter__item-list_flex filter__item-list_year">
+									<div class="filter__item-side filter__item-side_left">
+										<label class="filter__item-checkbox custom-w" name="min-year" >
+											<input name="years_from" type="radio" checked>
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>Любой</span>
+										</label>
+										<label class="filter__item-checkbox custom-w " name="min-year" >
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2023</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2022</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2021</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2020</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2019</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2018</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2017</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2016</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2015</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2014</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2013</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2012</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2011</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="min-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2010</span>
+										</label>
+									</div>
+									<div class="filter__item-side filter__item-side_right" name="max-year">
+										<label class="filter__item-checkbox custom-w">
+											<input name="years_to" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>Любой</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_to" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2023</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_to" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2022</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_to" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2021</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_to" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2020</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_to" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2019</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_to" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2018</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_to" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2017</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2016</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2015</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2014</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="mmax-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2013</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2012</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2011</span>
+										</label>
+										<label class="filter__item-checkbox custom-w" name="max-year">
+											<input name="years_from" type="radio" >
+											<i class="filter__custom-input filter__custom-input_radio"></i>
+											<span>2010</span>
+										</label>
+									</div>
+								</div>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset reset-year">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="filter__item">
-						<span>Пробег, км</span>
-						<input class="filter__item-field">
+					<div class="filter__item    ">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Пробег, км <span class="new-text"></span></div>
+							
+						</div>
+						<div class="filter__item-content list-inputs">
+							<div class="filter__item-content-title">
+								Пробег, км
+							</div>
+							<div class="filter__item-content-top">
+								<b>Мин.
+								<input type="tel" class="filter__item-input"  name="от">
+								</b>
+								<b>Макс.
+								<input type="tel" class="filter__item-input"  name="до">
+								</b>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="filter__item">
-						<span>Коробка</span>
-						<input class="filter__item-field">
+					<div class="filter__item    ">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Коробка<span class="new-text"></span></div>
+							
+						</div>
+						<div class="filter__item-content">
+							<div class="filter__item-content-title">
+								Коробка
+							</div>
+							<div class="blur">
+								<div class="filter__item-list list-checkbox">
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Автомат</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Робот</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Вариатор</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Механика</span>
+									</label>
+								</div>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="filter__item">
-						<span>Привод</span>
-						<input class="filter__item-field">
+					<div class="filter__item    ">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Привод<span class="new-text"></span></div>
+						</div>
+						<div class="filter__item-content">
+							<div class="filter__item-content-title">
+								Привод
+							</div>
+							<div class="blur">
+								<div class="filter__item-list list-checkbox">
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Передний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Задний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>4x4</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Передний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Задний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>4x4</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Передний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Задний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>4x4</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Передний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Задний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>4x4</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Передний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Задний</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>4x4</span>
+									</label>
+								</div>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="filter__item">
-						<span>Типы кузова</span>
-						<input class="filter__item-field">
+					<div class="filter__item    ">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Типы кузова
+								<span class="new-text">
+								</span>
+							</div>
+						</div>
+						<div class="filter__item-content">
+							<div class="filter__item-content-title">
+								Типы кузова
+							</div>
+							<div class="blur">
+								<div class="filter__item-list list-checkbox">
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Мини</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Хетчбэки</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Седаны</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Универсалы</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Кроссоверы</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Вэны</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Мини</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Мини</span>
+									</label>
+								</div>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="filter__item">
-						<span>Типы двигателей</span>
-						<input class="filter__item-field">
+					<div class="filter__item    ">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Типы двигателей<span class="new-text"></span></div>
+							
+						</div>
+						<div class="filter__item-content">
+							<div class="filter__item-content-title">
+								Типы двигателей
+							</div>
+							<div class="blur">
+								<div class="filter__item-list list-checkbox">
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Бензин</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Дизель</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Гибрид</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Plug-in Гибрид</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Электро</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>СУГ</span>
+									</label>
+								</div>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
-					<div class="filter__item">
-						<span>Рука</span>
-						<input class="filter__item-field">
+					<div class="filter__item    ">
+						<div class="filter__item-header">
+							<div class="filter__item-subtitle">Рука<span class="new-text"></span></div>
+						</div>
+						<div class="filter__item-content">
+							<div class="filter__item-content-title">
+								Рука
+							</div>
+							<div class="blur">
+								<div class="filter__item-list list-checkbox">
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>Новый</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>1</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>2</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>3</span>
+									</label>
+									<label class="filter__item-checkbox custom-w">
+										<input type="checkbox" >
+										<i class="filter__custom-input"></i>
+										<span>4+</span>
+									</label>
+								</div>
+							</div>
+							<div class=" filter__item-close filter__item-close-btn"></div>
+							<div class="filter__item-content-footer">
+								<button class="filter__item-content-reset reset-filter">
+									Сбросить
+								</button>
+								<button class="filter__item-content-done filter__item-close-btn">
+									Готово
+								</button>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="filter__footer">
@@ -817,3 +1488,4 @@
 
 </body>
 </html>
+

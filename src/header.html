@@ -2,7 +2,7 @@
     <header class ="header container">
         <div class="header__content">
             <a href="/" class="header__logo logo">
-                автосалон
+                <img src="./img/icons/logo.svg" alt="logo">
             </a>
             <nav class="header__nav">
                 @@item1
@@ -13,14 +13,14 @@
                 @@item6
             </nav>
             <div class="header__phone-action">
-                <button class="header__phone-btn btn btn_blue btn_phone">
+                <button class="header__phone-btn btn btn_blue btn_phone show-modal-phone">
                     <span>
                         Показать телефон
                     </span>
                     <img src="./img/icons/phone_black.svg" alt="phone">
                 </button>
-                <div class="header__menu">
-                    <div class="nav-icon">
+                <div class="header__menu ">
+                    <div class="nav-icon toggle-menu">
                         <span></span>
                         <span></span>
                         <span></span>
@@ -29,4 +29,22 @@
             </div>
         </div>
     </header>
+</div>
+<div class="header-m">
+    <div class="header-m__content">
+        <a href="/" class="header-m__logo">
+            <img src="./img/icons/logo.svg" alt="logo">
+        </a>
+        <div class="header-m__list">
+            @@item1
+            @@item2
+            @@item3
+            @@item4
+            @@item5
+            @@item6
+        </div>
+        <div class="header-m__close toggle-menu">
+            <img src="./img/icons/close_black.svg" alt="close">
+        </div>
+    </div>
 </div>
