@@ -387,7 +387,6 @@
         border-radius: 0;
         padding: 0;
         margin-top: 0px;
-        padding-bottom: 50px;
         & .filter__footer-btn_show {
             position: fixed;
             bottom: 0px;
@@ -430,6 +429,9 @@
         }
         & .filter__header {
             display: flex;
+        }
+        & .filter__content {
+        padding-bottom: 50px;
         }
     }
     &_catalog {
@@ -1025,7 +1027,7 @@
         @media(max-width:539px) {
             position: fixed;
             top: auto;
-            bottom: -100%;
+            bottom: -120%;
             width: 100%;
             left: 0;
             border-radius: 25px 25px 0px 0px;

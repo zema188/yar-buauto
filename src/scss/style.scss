@@ -103,6 +103,9 @@ body {
   line-height: 16px;
   color: #323232;
 }
+body.disable-scroll {
+  overflow-y: hidden;
+}
 
 @mixin popup {
   width: 100%;
@@ -145,14 +148,15 @@ body {
 
 @mixin popup-down {
   display: block;
-  bottom: -100%;
-  top: auto;
+  // bottom: -100%;
+  top: 100%;
   transition: .4s;
   &::before {
     display: none;
   }
   &.active {
-    bottom: 0;
+    // bottom: 0;
+    top: 0;
     &::before {
       display: block;
     }

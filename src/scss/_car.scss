@@ -998,7 +998,8 @@
         }
     }
     @media(max-width:539px) {
-        @include popup-down;    
+        @include popup-down;
+        top: 100%;    
         & .credit__btn-submit {
             max-width: 300px;
             margin-left: auto;

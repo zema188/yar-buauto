@@ -572,18 +572,50 @@
         display: none;
         position: absolute;
         left: 0;
+        top: 21px;
         width: 100%;
         top: 100%;
         z-index: 5;
-        padding: 5px;
-        background: #c2c4dd;
+        background: #FFFFFF;
+        box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.08);
+        border-radius: 5px;
+        padding: 6px 0px;
         &.active {
             display: block;
         }
     }
 
     &__header-filter-item {
-        margin-bottom: 5px;
+        font-family: 'Rubik';
+        font-weight: 300;
+        font-size: 10px;
+        line-height: 12px;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding-left: 12px;
+        padding-right: 12px;
+        white-space: nowrap;
+        &:not(:last-child) {
+            margin-bottom: 6px;
+            padding-bottom: 6px;
+            border-bottom: 0.6px solid #EAE9EF;
+        }
+        &::before {
+            content: "";
+            background: url(../img/icons/filter_check.svg) 0 0 no-repeat;
+            background-size: cover;
+            width: 8px;
+            height: 6px;
+            transition: .2s;
+            display: block;
+            opacity: 0;
+        }
+        &.active {
+            &::before {
+                opacity: 1;
+            }
+        }
     }
 }
 
