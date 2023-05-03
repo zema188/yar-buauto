@@ -372,17 +372,28 @@ body {
   background: linear-gradient(to right, #2c64ee, #139e33 ); /* Chrome 10-25, Safari 5.1-6 */
   cursor: pointer;
   &::after {
-    content: "Заявка отправлена";
-    z-index: 2;
-    position: relative;
+    animation: wordChange 5.5s linear forwards;
   }
   pointer-events: none;
   &:hover {
+  background: linear-gradient(to right, #2c64ee, #139e33 ); /* Chrome 10-25, Safari 5.1-6 */
   }
   animation: gradientChange 5s linear forwards;
 }
 
+@keyframes wordChange {
+  0% {
+    display: none;
+  }
+  50% { 
 
+  }
+  100% {
+    content: "Заявка отправлена";
+    z-index: 2;
+    position: relative;
+  }
+}
 @keyframes gradientChange {
   0% {
     background-position: 0% 0%;
@@ -393,6 +404,7 @@ body {
   100% {
     background-position: 100% 0%;
     background-size: 500%;
+
   }
 }
 h2 {

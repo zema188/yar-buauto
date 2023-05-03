@@ -52,9 +52,17 @@
     }
     &__slide {
         cursor: zoom-in;
+        overflow: hidden;
+        border-radius: 5px;
+        &:hover {
+            & img {
+                transform: scale(1.1);
+            }
+        }
         & img {
             width: 100%;
             border-radius: 5px;
+            transition: .2s;
         }
         & span {
             position: absolute;
@@ -247,7 +255,6 @@
 
     &__characteristics-col {
         background: #FFFFFF;
-        box-shadow: 0px 2.40838px 7.22513px 4.81675px rgba(39, 39, 39, 0.04);
         border-radius: 6.02094px;
         padding: 20px;
         width: 265px;
@@ -710,7 +717,7 @@
 }
 .credit__col-item {
     border-radius: 5px;
-    box-shadow: 2px 2px 4px 6px rgba(39, 39, 39, 0.03);
+    box-shadow: 2px 2px 4px 6px rgba(39, 39, 39, 2.8%);
 }
 .credit {
     padding: 37px;
@@ -874,11 +881,18 @@
 }
 
 .possibilities {
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 12px;
     margin-top: 50px;
     padding: 27px 17px;
+    transition: .2s;
+    &:hover {
+        & h3 {
+            color: #2C64EE;
+        }
+    }
     @media(max-width:1023px) {
         display: none;
     }
@@ -984,6 +998,7 @@
         }
     }
     @media(max-width:539px) {
+        @include popup-down;    
         & .credit__btn-submit {
             max-width: 300px;
             margin-left: auto;
@@ -1129,116 +1144,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-input[type=range] {
-    height: 2px;
-    -webkit-appearance: none;
-    margin: 7px 0 0px;
-    width: 100%;
-  }
-  input[type=range]:focus {
-    outline: none;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 2px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 0px 0px 0px #000000;
-    background: #2C64EE;
-    border-radius: 4px;
-    border: 0px solid #000000;
-  }
-  input[type=range]::-webkit-slider-thumb {
-    box-shadow: 0px 0px 0px #000000;
-    border: 2px solid #2C64EE;
-    height: 13px;
-    width: 13px;
-    border-radius: 50px;
-    background: #FFFFFF;
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -6.5px;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #2C64EE;
-  }
-  input[type=range]::-moz-range-track {
-    width: 100%;
-    height: 2px;
-    cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 0px 0px 0px #000000;
-    background: #2C64EE;
-    border-radius: 4px;
-    border: 0px solid #000000;
-  }
-  input[type=range]::-moz-range-thumb {
-    box-shadow: 0px 0px 0px #000000;
-    border: 2px solid #2C64EE;
-    height: 13px;
-    width: 13px;
-    border-radius: 50px;
-    background: #FFFFFF;
-    cursor: pointer;
-  }
-  input[type=range]::-ms-track {
-    width: 100%;
-    height: 2px;
-    cursor: pointer;
-    animate: 0.2s;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-  input[type=range]::-ms-fill-lower {
-    background: #2C64EE;
-    border: 0px solid #000000;
-    border-radius: 8px;
-    box-shadow: 0px 0px 0px #000000;
-  }
-  input[type=range]::-ms-fill-upper {
-    background: #2C64EE;
-    border: 0px solid #000000;
-    border-radius: 8px;
-    box-shadow: 0px 0px 0px #000000;
-  }
-  input[type=range]::-ms-thumb {
-    margin-top: 1px;
-    box-shadow: 0px 0px 0px #000000;
-    border: 2px solid #2C64EE;
-    height: 13px;
-    width: 13px;
-    border-radius: 50px;
-    background: #FFFFFF;
-    cursor: pointer;
-  }
-  input[type=range]:focus::-ms-fill-lower {
-    background: #2C64EE;
-  }
-  input[type=range]:focus::-ms-fill-upper {
-    background: #2C64EE;
-  }
-
-
-
   .gallery {
     position: fixed;
     width: 100%;
@@ -1284,8 +1189,29 @@ input[type=range] {
         height: 100px;
         border-radius: 5px;
         border: 2px solid transparent;
+        position: relative;
+        cursor: pointer;
+        &:hover {
+            &::after {
+                opacity: 0;
+            }
+        }
         &.active {
             border: 2px solid #2C64EE;
+            &::after {
+                opacity: 0;
+            }
+        }
+        &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: absolute;
+            opacity: 0.2;
+            background: #000;
+            transition: .2s;
         }
         & img {
             height: 100%;
@@ -1351,6 +1277,10 @@ input[type=range] {
         background: url(../img/icons/close.svg) 0 0 no-repeat;
         background-size: cover;
         background-position: center;
+        transition: .2s;
+        &:hover {
+            transform: scale(1.1);
+        }
         @media(max-width:899px) {
             border-radius: 50%;
             background: url(../img/icons/close.svg), rgba(39, 39, 39, 0.73);
@@ -1548,7 +1478,7 @@ input[type=range] {
     &__footer-fixed {
         position: fixed;
         width: 100%;
-        background: #fff;
+        background: rgba(255,255,255,0.7);
         gap: 8px;
         padding: 15px;
         bottom: 0px;
@@ -1590,3 +1520,193 @@ input[type=range] {
         padding: 20px 30.5px;
     }
 }
+
+.trade-form {
+    display: none;
+    margin-top: 20px;
+    padding: 10px 37px 37px 37px;
+    @media(max-width:1199px) {
+        padding: 5px 15px;
+    }
+}
+.possibilities_credit {
+    margin-bottom: 20px;
+    margin-top: 0px;
+}
+/*generated with Input range slider CSS style generator (version 20211225)
+https://toughengineer.github.io/demo/slider-styler*/
+input[type=range].styled-slider {
+    margin-top: 4px;
+    height: 2px;
+    -webkit-appearance: none;
+  }
+  
+  /*progress support*/
+  input[type=range].styled-slider.slider-progress {
+    --range: calc(var(--max) - var(--min));
+    --ratio: calc((var(--value) - var(--min)) / var(--range));
+    --sx: calc(0.5 * 15px + var(--ratio) * (100% - 15px));
+  }
+  
+  input[type=range].styled-slider:focus {
+    outline: none;
+  }
+  
+  /*webkit*/
+  input[type=range].styled-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 1em;
+    background: #fff;
+    border: 3px solid #2C64EE;
+    box-shadow: 0 0 2px black;
+    margin-top: calc(3px * 0.5 - max(15px * 0.5,3px));
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-runnable-track {
+    height: 3px;
+    border: none;
+    border-radius: 0.5em;
+    background: #fff;
+    box-shadow: none;
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-thumb:hover {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider:hover::-webkit-slider-runnable-track {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider::-webkit-slider-thumb:active {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider:active::-webkit-slider-runnable-track {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-webkit-slider-runnable-track {
+    background: linear-gradient(#2C64EE,#2C64EE) 0/var(--sx) 100% no-repeat, #fff;
+  }
+  
+  input[type=range].styled-slider.slider-progress:hover::-webkit-slider-runnable-track {
+    background: linear-gradient(#2C64EE,#2C64EE) 0/var(--sx) 100% no-repeat, #fff;
+  }
+  
+  input[type=range].styled-slider.slider-progress:active::-webkit-slider-runnable-track {
+    background: linear-gradient(#2C64EE,#2C64EE) 0/var(--sx) 100% no-repeat, #fff;
+  }
+  
+  /*mozilla*/
+  input[type=range].styled-slider::-moz-range-thumb {
+    width: max(calc(15px - 3px - 3px),0px);
+    height: max(calc(15px - 3px - 3px),0px);
+    border-radius: 1em;
+    background: #fff;
+    border: 3px solid #2C64EE;
+    box-shadow: 0 0 2px black;
+  }
+  
+  input[type=range].styled-slider::-moz-range-track {
+    height: 3px;
+    border: none;
+    border-radius: 0.5em;
+    background: #fff;
+    box-shadow: none;
+  }
+  
+  input[type=range].styled-slider::-moz-range-thumb:hover {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider:hover::-moz-range-track {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider::-moz-range-thumb:active {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider:active::-moz-range-track {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-moz-range-track {
+    background: linear-gradient(#2C64EE,#2C64EE) 0/var(--sx) 100% no-repeat, #fff;
+  }
+  
+  input[type=range].styled-slider.slider-progress:hover::-moz-range-track {
+    background: linear-gradient(#2C64EE,#2C64EE) 0/var(--sx) 100% no-repeat, #fff;
+  }
+  
+  input[type=range].styled-slider.slider-progress:active::-moz-range-track {
+    background: linear-gradient(#2C64EE,#2C64EE) 0/var(--sx) 100% no-repeat, #fff;
+  }
+  
+  /*ms*/
+  input[type=range].styled-slider::-ms-fill-upper {
+    background: transparent;
+    border-color: transparent;
+  }
+  
+  input[type=range].styled-slider::-ms-fill-lower {
+    background: transparent;
+    border-color: transparent;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 1em;
+    background: #fff;
+    border: 3px solid #2C64EE;
+    box-shadow: 0 0 2px black;
+    margin-top: 0;
+    box-sizing: border-box;
+  }
+  
+  input[type=range].styled-slider::-ms-track {
+    height: 3px;
+    border-radius: 0.5em;
+    background: #fff;
+    border: none;
+    box-shadow: none;
+    box-sizing: border-box;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb:hover {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider:hover::-ms-track {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider::-ms-thumb:active {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider:active::-ms-track {
+    background: #fff;
+  }
+  
+  input[type=range].styled-slider.slider-progress::-ms-fill-lower {
+    height: 3px;
+    border-radius: 0.5em 0 0 0.5em;
+    margin: -undefined 0 -undefined -undefined;
+    background: #2C64EE;
+    border: none;
+    border-right-width: 0;
+  }
+  
+  input[type=range].styled-slider.slider-progress:hover::-ms-fill-lower {
+    background: #2C64EE;
+  }
+  
+  input[type=range].styled-slider.slider-progress:active::-ms-fill-lower {
+    background: #2C64EE;
+  }
+  

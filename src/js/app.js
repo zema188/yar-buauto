@@ -258,6 +258,7 @@ function toggleMobileMenu() {
   }
   mobileMenu.classList.toggle('active')
 }
+const filter = document.querySelector('.filter')
 // Size-control
 window.addEventListener('resize', function(event){
     // if(window.innerWidth > 1278) {
@@ -275,7 +276,6 @@ window.addEventListener('resize', function(event){
     // }
     let popups = document.querySelectorAll('.popup')
     let credit = document.querySelector('.credit')
-    const filter = document.querySelector('.filter')
     if(window.innerWidth >= 540) {
       if(filter !== null)
         filter.classList.remove('popup')
@@ -299,8 +299,36 @@ window.addEventListener('resize', function(event){
         bodyNotFixed()
       }
     }
-})
+    if(window.innerWidth <=1023) {
+      let creditCar = document.querySelector('.credit_car')
+      if(creditCar !== null) {
+        let style = getComputedStyle(creditCar)
+        if(style.display == 'none') {
+          $(creditCar).attr('style', '')
+        }
+      }
+    }
+    if(window.innerWidth <= 539) {
 
+      if(filter !== null && !filter.classList.contains('filter_catalog')) {
+        filter.classList.add('active')
+        filter.style.display = 'block'
+      } else {
+        $( filter ).slideUp( "slow", function() {
+        });
+      }
+    }
+})
+if(window.innerWidth <= 539 && (filter !== null)) {
+  if(!filter.classList.contains('filter_catalog')) {
+    filter.classList.add('active')
+  } else {
+    filter.classList.remove('active')
+    $( filter ).slideUp( "slow", function() {
+      // Animation complete.
+    });
+  }
+}
 // let formCallBtn = document.querySelectorAll('.form-btn')
 // let formCall = document.querySelector('.form-call-me')
 // for(let i=0 ; i < formCallBtn.length ; i++) {
@@ -433,6 +461,11 @@ const previewSwiper = new Swiper('.preview-swiper', {
     slidesPerView: 2,
     speed: 400,
     spaceBetween: 25,
+    loop: true,
+    autoplay: {
+      delay: 2000,
+      disableOnInteraction: false,
+    },
     pagination: {
         el: '.preview-swiper__pagination',
         type: 'bullets',
@@ -509,6 +542,7 @@ const offersItemSwiper = new Swiper('.offers__item-swiper', {
   slidesPerView: 1,
   speed: 400,
   spaceBetween: 10,
+  mousewheel: true,
   pagination: {
     el: '.offers__item-pagination',
     type: 'bullets',
@@ -535,6 +569,29 @@ const offersItemSwiper = new Swiper('.offers__item-swiper', {
     },
   }
 })
+// offers swiper 
+
+if(document.querySelectorAll('.offers__item-swiper').length) {
+  let swipers = document.querySelectorAll('.offers__item-swiper')
+  for(let i = 0; i < swipers.length; i++) {
+    addHoverMouseSwiper(swipers[i],i)
+  }
+
+  function addHoverMouseSwiper (swiper,index) {
+    let slides = swiper.querySelectorAll('.offers__item-slide')
+    width = swiper.offsetWidth / slides.length
+    let left = 0
+    for(let i = 0; i < slides.length; i++) {
+      let newDiv = document.createElement("i");
+      swiper.append(newDiv)
+      newDiv.style.width = width + 'px'
+      newDiv.style.left = width * i + 'px'
+      newDiv.addEventListener('mouseover', function() {
+        offersItemSwiper[index].slideTo(i, 400)
+      })
+    }
+  }
+}
 
 
 
@@ -622,25 +679,7 @@ if(carEquipmentItem.length) {
 }
 
 
-//car page car__discount
-if(document.querySelectorAll('.car__discount-btn_pc').length) {
-  let carDiscountBtn = document.querySelector('.car__discount-btn_pc')
-  let discount = document.querySelector('.car__discount_pc')
-  carDiscountBtn.onclick = function() {
-    this.classList.toggle('active')
-    discount.classList.toggle('active')
-  }
-}
-//car page car__discount mobile
-if(document.querySelectorAll('.car__discount-btn_mob').length) {
-  let carDiscountBtn = document.querySelector('.car__discount-btn_mob')
-  let discount = document.querySelector('.car__discount_mobile')
-  carDiscountBtn.onclick = function() {
-    this.classList.toggle('active')
-    discount.classList.toggle('active')
-    bodyFixed()
-  }
-}
+
 
 if(document.querySelectorAll('.credit__form').length) {
   // рассчет при загрузке страницы
@@ -746,29 +785,27 @@ function numberWithCommas(x) {
 
 
 //car-swiper
-function createCarSwiper(numberSlide) {
-  let carSwiper = new Swiper(".car-swiper", {
-    spaceBetween: 10,
-    slidesPerView: 1,
-    initialSlide: numberSlide,
-    navigation: {
-      nextEl: ".car-swiper__next",
-      prevEl: ".car-swiper__prev",
+let carSwiper = new Swiper(".car-swiper", {
+  spaceBetween: 10,
+  slidesPerView: 1,
+  initialSlide: 0,
+  navigation: {
+    nextEl: ".car-swiper__next",
+    prevEl: ".car-swiper__prev",
+  },
+  pagination: {
+    el: '.car-swiper__pagination',
+    type: 'fraction',
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1.01
     },
-    pagination: {
-      el: '.car-swiper__pagination',
-      type: 'fraction',
+    768: {
+      slidesPerView: 1,
     },
-    breakpoints: {
-      0: {
-        slidesPerView: 1.01
-      },
-      768: {
-        slidesPerView: 1,
-      },
-    }
-  });
-}
+  }
+});
 
 
 
@@ -776,9 +813,6 @@ function createCarSwiper(numberSlide) {
 //car page текст на последнем фото 
 
 if(document.querySelectorAll('.car__slider ').length) {
-  createCarSwiper(0)
-
-
 
   let slider = document.querySelector('.car__slider')
   let quantity = slider.querySelectorAll('.car-swiper__slide')
@@ -795,7 +829,7 @@ if(document.querySelectorAll('.car__slider ').length) {
   for(let i = 0; i < thumbSlide.length; i++) {
     thumbSlide[i].addEventListener('mouseover', function() {
       if(!this.classList.contains('notZoom')) {
-        createCarSwiper(i)
+        carSwiper.slideTo(i, 400)
       }
     })
   }
@@ -923,6 +957,15 @@ if(document.querySelectorAll('.filter').length) {
     })
   }
 
+  //закрытие фильтра на крестик
+  let filterClose = filter.querySelector('.filter__header-close')
+  filterClose.onclick = function() {
+    if(filter.classList.contains('filter_catalog')) {
+      filter.classList.remove('active')
+      filter.classList.remove('popup')
+      filter.style.display = 'none'
+    }
+  }
 
 
   let labels = filter.querySelectorAll('label')
@@ -1137,14 +1180,25 @@ function addYears(target) {
 
 //show filter by click
   let showFilterBtn = document.querySelector('.btn-show-filter')
-  showFilterBtn.onclick = function() {
-    filter.classList.toggle('active')
-  }
+  $( showFilterBtn ).on( "click", function() {
+    if(window.innerWidth <= 539) {
+      filter.classList.add('active')
+      filter.classList.add('popup')
+      filter.style.display = 'block'
+      bodyFixed()
+    } else {
+      $( filter ).slideToggle( "slow", function() {
+        // Animation complete.
+      });
+    }
+  });
 //close filter by click
   let closeFilterBtn = filter.querySelector('.filter__footer-btn_close')
-  closeFilterBtn.onclick = function() {
-    filter.classList.remove('active')
-  }
+  $( closeFilterBtn ).on( "click", function() {
+    $( filter ).slideToggle( "slow", function() {
+      // Animation complete.
+    });
+  });
   let filterSubtitle = filter.querySelectorAll('.filter__item-subtitle')
   let filterResetBtn = filter.querySelector('.filter__footer-btn_reset')
 
@@ -1213,13 +1267,15 @@ if(document.querySelectorAll('.show-modal-phone').length) {
 
 
 //credit open in mobile 
-if(document.querySelectorAll('.car__header-credit-btn').length) {
-  let showCreditModalBtn = document.querySelector('.car__header-credit-btn')
+if(document.querySelectorAll('.open-credit-btn').length) {
+  let showCreditModalBtn = document.querySelectorAll('.open-credit-btn')
   let credit = document.querySelector('.credit')
-  showCreditModalBtn.onclick = function() {
-    credit.classList.add('active')
-    credit.classList.add('popup')
-    bodyFixed()
+  for(let i = 0; i<showCreditModalBtn.length; i++) {
+    showCreditModalBtn[i].onclick = function() {
+      credit.classList.add('active')
+      credit.classList.add('popup')
+      bodyFixed()
+    }
   }
 }
 
@@ -1258,20 +1314,17 @@ if(document.querySelectorAll('.additionally').length) {
             addLock(document.querySelector('[name$="model"]'))
             addLock(document.querySelector('[name$="ads"]'))
             addHidden(document.querySelector('[name$="calc"]'))
-            addHidden(document.querySelector('[name$="user-data-credit"]'))
             addHidden(document.querySelector('[name$="ads-item"]'))
             break
           }
           case 'model': {
             addLock(document.querySelector('[name$="ads"]'))
             addHidden(document.querySelector('[name$="calc"]'))
-            addHidden(document.querySelector('[name$="user-data-credit"]'))
             addHidden(document.querySelector('[name$="ads-item"]'))
             break
           }
           case 'ads': {
             addHidden(document.querySelector('[name$="calc"]'))
-            addHidden(document.querySelector('[name$="user-data-credit"]'))
             addHidden(document.querySelector('[name$="ads-item"]'))
             break
           }
@@ -1292,7 +1345,6 @@ if(document.querySelectorAll('.additionally').length) {
           }
           case 'ads': {
             document.querySelector('[name$="calc"]').classList.remove('hidden')
-            document.querySelector('[name$="user-data-credit"]').classList.remove('hidden')
             document.querySelector('[name$="ads-item"]').classList.remove('hidden')
             calc()
             break
@@ -1335,5 +1387,129 @@ if(document.querySelectorAll('.test').length) {
   let test = document.querySelector('.test') 
   test.onclick = function() {
     this.classList.add('progress-bar-striped')
+  }
+}
+
+
+
+if(document.querySelectorAll('.header_car').length) {
+  let header = document.querySelector('.header_car')
+  document.addEventListener('scroll', function() {
+    if(window.pageYOffset>=20) {
+      header.classList.add('fixed')
+    } else {
+      header.classList.remove('fixed')
+    }
+  })
+}
+
+for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+  e.style.setProperty('--value', e.value);
+  e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+  e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+  e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+}
+
+
+
+
+//car page car__discount
+if(document.querySelectorAll('.car__discount-btn_pc').length) {
+  let carDiscountBtn = document.querySelector('.car__discount-btn_pc')
+  let discount = document.querySelector('.car__discount_pc')
+
+  $( carDiscountBtn ).on( "click", function() {
+    this.classList.toggle('active')
+    $( discount ).slideToggle( "slow", function() {
+      // Animation complete.
+    });
+  });
+}
+//car page car__discount mobile
+if(document.querySelectorAll('.car__discount-btn_mob').length) {
+  let carDiscountBtn = document.querySelector('.car__discount-btn_mob')
+  let discount = document.querySelector('.car__discount_mobile')
+  carDiscountBtn.onclick = function() {
+    this.classList.toggle('active')
+    discount.classList.toggle('active')
+    bodyFixed()
+  }
+
+}
+
+
+//mask for input type tel 
+  [].forEach.call( document.querySelectorAll('[type="tel"]'), function(input) {
+  let keyCode;
+  function mask(event) {
+      event.keyCode && (keyCode = event.keyCode);
+      let pos = this.selectionStart;
+      if (pos < 3) event.preventDefault();
+      let matrix = "+7 (___) ___ ____",
+          i = 0,
+          def = matrix.replace(/\D/g, ""),
+          val = this.value.replace(/\D/g, ""),
+          new_value = matrix.replace(/[_\d]/g, function(a) {
+              return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+          });
+      i = new_value.indexOf("_");
+      if (i != -1) {
+          i < 5 && (i = 3);
+          new_value = new_value.slice(0, i)
+      }
+      let reg = matrix.substr(0, this.value.length).replace(/_+/g,
+          function(a) {
+              return "\\d{1," + a.length + "}"
+          }).replace(/[+()]/g, "\\$&");
+      reg = new RegExp("^" + reg + "$");
+      if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+      if (event.type == "blur" && this.value.length < 5)  this.value = ""
+  }
+
+  input.addEventListener("input", mask, false);
+  input.addEventListener("focus", mask, false);
+  input.addEventListener("blur", mask, false);
+  input.addEventListener("keydown", mask, false)
+
+});
+
+
+//offers__header-filter-list
+
+
+if(document.querySelectorAll('.offers__header-filter-list').length) {
+  let btnOpenFilterOfferList = document.querySelector('.offers__header-filter-title')
+  let offersFilterList = document.querySelector('.offers__header-filter-list')
+  $( btnOpenFilterOfferList ).on( "click", function() {
+    $( offersFilterList ).slideToggle( "slow", function() {
+      // Animation complete.
+    });
+  });
+  offersFilterList.addEventListener('click', function(e) {
+    let target = e.target
+    if(target.classList.contains('offers__header-filter-item')) {
+      btnOpenFilterOfferList.innerHTML = e.target.innerHTML
+    }
+  })
+}
+
+
+
+//раскрытие формы обменять на мой авто  на странице car 
+
+if(document.querySelectorAll('.possibilities_trade').length) {
+  let possibilitiesTrade = document.querySelector('.possibilities_trade')
+  possibilitiesTrade.onclick = function() {
+        $('.trade-form').slideToggle(400);
+        $('.credit_car').slideUp(400);
+  }
+}
+
+//раскрытие формы с калькулятором на странице car
+if(document.querySelectorAll('.possibilities_credit').length) {
+  let possibilitiesCredit = document.querySelector('.possibilities_credit')
+  possibilitiesCredit.onclick = function() {
+        $('.trade-form').slideUp(400);
+        $('.credit_car').slideToggle(400);
   }
 }

@@ -1,13 +1,23 @@
 .header-w {
+  position: sticky;
+  top: 0px;
+  z-index: 9;
 }
 .header {
 		&__content {
-            padding-top: 20px;
-            padding-bottom: 20px;
+            background: rgb(255,255,255,0.8);
+            z-index: 2;
+            position: relative;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 11px;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            @media(max-width:1023px) {
+              padding-bottom: 10px;
+              padding-top: 10px;
+            }
             @media(max-width:767px) {
               padding-top: 6px;
               padding-bottom: 6px;
@@ -156,7 +166,7 @@
 
 
   .header-m {
-    background: #c5d1ef;
+    background: #e7e5e5;
     max-width: 290px;
     width: 63%;
     position: fixed;

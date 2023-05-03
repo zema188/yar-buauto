@@ -154,8 +154,20 @@
                 }
             }
             .swiper-pagination-bullet-active {
+                position: relative;
                 transition: .5s;
-                background: linear-gradient(to right, #2C64EE 50%, #B2C1E7 50%);
+                background:  #B2C1E7;
+                &::after {
+                    content: "";
+                    width: 0%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                    border-radius: 13px;
+                    position: absolute;
+                    animation: swiper-active-line 2s forwards linear;
+                    background: #2C64EE;
+                }
             }
             .swiper-pagination-bullet-active ~ span {
                 transition: .5s;
@@ -164,7 +176,17 @@
 		}
 }
 
+@keyframes swiper-active-line {
+    0% {
+        width: 0%;
+    }
+    50% { 
 
+    }
+    100% {
+        width: 100%;
+    }
+}
 .mileage {
     padding-top: 60px;
 
@@ -346,10 +368,10 @@
 .filter {
     display: none;
     background: #FFFFFF;
-    box-shadow: 1px 1px 6px 8px rgba(39, 39, 39, 0.04);
     border-radius: 5px;
     margin-top: 26px;
-    padding: 50px 10px 16px 33px;
+    padding: 50px 33px 16px 33px;
+    border-radius: 5px;
     &.active {
         display: block;
     }
