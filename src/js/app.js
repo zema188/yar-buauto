@@ -87,10 +87,16 @@ window.addEventListener('resize', function(event){
     let popups = document.querySelectorAll('.popup')
     let credit = document.querySelector('.credit')
     if(window.innerWidth >= 540) {
-      if(filter !== null)
+      if(filter !== null) {
         filter.classList.remove('popup')
         bodyScrollLock.enableBodyScroll(filter);
+      }
+
         // bodyNotFixed()
+    }
+    if(window.innerWidth <=539) {
+      if(credit.classList.contains('credit_car'))
+      credit.classList.add('popup')
     }
     if(window.innerWidth >= 1024) {
       mobileMenu.classList.remove('active')
@@ -100,7 +106,7 @@ window.addEventListener('resize', function(event){
       if(credit !== null)
       credit.classList.remove('popup')
       let popupActive = false
-      for (var i = 0; i < popups.length; i++) {
+      for (let i = 0; i < popups.length; i++) {
         if (popups[i].classList.contains('active')) {
           popupActive = true
           break
@@ -174,6 +180,7 @@ const benefitSwiper = new Swiper('.benefit-swiper', {
     slidesPerView: 3,
     speed: 400,
     spaceBetween: 35,
+    allowTouchMove: true,
     breakpoints: {
         0: {
           slidesPerView: 1.65,
@@ -402,6 +409,8 @@ function link_Feilds(fields) {
     fields[i].addEventListener('input', function() {
       let number = getNumber(fields[i].value)
       range.value = number
+      console.log('test')
+      ChangeRange(range)
       calc()
     })
     fields[i].addEventListener('click', function() {
@@ -421,6 +430,18 @@ function link_Feilds_Range(range) {
   }
 }
 
+for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
+  e.style.setProperty('--value', e.value);
+  e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+  e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+  e.addEventListener('input', () => e.style.setProperty('--value', e.value));
+}
+function ChangeRange(e) {
+  e.style.setProperty('--value', e.value);
+  e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+  e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+  e.style.setProperty('--value', e.value)
+}
 
 
 
@@ -1094,12 +1115,6 @@ if(document.querySelectorAll('.header_car').length) {
   })
 }
 
-for (let e of document.querySelectorAll('input[type="range"].slider-progress')) {
-  e.style.setProperty('--value', e.value);
-  e.style.setProperty('--min', e.min == '' ? '0' : e.min);
-  e.style.setProperty('--max', e.max == '' ? '100' : e.max);
-  e.addEventListener('input', () => e.style.setProperty('--value', e.value));
-}
 
 
 

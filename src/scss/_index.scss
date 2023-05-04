@@ -387,6 +387,7 @@
         border-radius: 0;
         padding: 0;
         margin-top: 0px;
+        padding-bottom: 100px;
         & .filter__footer-btn_show {
             position: fixed;
             bottom: 0px;
@@ -697,7 +698,10 @@
             transition: .4s;
             width: 100%;
         }
-
+        & picture {
+            transition: .4s;
+            width: 100%;
+        }
     }
 
     &__name {
