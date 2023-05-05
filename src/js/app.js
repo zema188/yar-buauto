@@ -94,7 +94,7 @@ window.addEventListener('resize', function(event){
 
         // bodyNotFixed()
     }
-    if(window.innerWidth <=539) {
+    if(window.innerWidth <=539 && credit !== null) {
       if(credit.classList.contains('credit_car'))
       credit.classList.add('popup')
     }
@@ -112,7 +112,7 @@ window.addEventListener('resize', function(event){
           break
         }
       }
-      if(!popupActive) {
+      if(!popupActive && credit!==null) {
         bodyScrollLock.enableBodyScroll(credit);
         // bodyNotFixed()
       }
@@ -778,6 +778,21 @@ if(document.querySelectorAll('.filter').length) {
 
   }
 
+let marksModelsList = filter.querySelector('.filter__model-mark-list')
+let btnMore = marksModelsList.querySelectorAll('.btn-more')
+let list_w = marksModelsList.querySelectorAll('.filter__btn-w')
+for(let i = 0; i<btnMore.length; i++) {
+  btnMore[i].addEventListener('click', function() {
+    let list = this.closest('.filter__btn-w')
+    if(list.classList.contains('active')) {
+      changerActive(list_w)
+    } else {
+      changerActive(list_w)
+      list.classList.add('active')
+    }
+  }) 
+}
+console.log(btnMore)
 function checkForReset() {
   let filterResetBtn = filter.querySelector('.filter__footer-btn_reset')
   let spans = filter.querySelectorAll('.new-text')
