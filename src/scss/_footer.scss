@@ -9,6 +9,11 @@
             margin-top: 29px;
         }
     }
+    &_car {
+        @media(max-width:539px) {
+            padding-bottom: 64px;
+        }
+    }
 }
 .footer {
     padding-top: 66px;
@@ -67,6 +72,10 @@
 		&__nav-item {
             color: #FFFFFF;
             white-space: nowrap;
+            transition: .2s;
+            &:hover {
+                text-decoration: underline;
+            }
 		}
 
 		&__btn-call {

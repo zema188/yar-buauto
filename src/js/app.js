@@ -71,19 +71,7 @@ function toggleMobileMenu() {
 const filter = document.querySelector('.filter')
 // Size-control
 window.addEventListener('resize', function(event){
-    // if(window.innerWidth > 1278) {
-    //   document.querySelector('.header__menu').classList.remove('active')
-    //   document.querySelector('.header-m').classList.remove('active')
-    //   for(let i = 0; i < nav_icon.length;i++) {
-    //     nav_icon[i].classList.remove('open')
-    //   }
-    // }
-    let popupPhone = document.querySelector('.popup-phone')
-    // if(window.innerWidth <= 539) {
-    //   if(popupPhone.classList.contains('active')) {
-    //     bodyNotFixed()
-    //   }
-    // }
+
     let popups = document.querySelectorAll('.popup')
     let credit = document.querySelector('.credit')
     if(window.innerWidth >= 540) {
@@ -91,7 +79,6 @@ window.addEventListener('resize', function(event){
         filter.classList.remove('popup')
         bodyScrollLock.enableBodyScroll(filter);
       }
-
         // bodyNotFixed()
     }
     if(window.innerWidth <=539 && credit !== null) {
@@ -127,13 +114,9 @@ window.addEventListener('resize', function(event){
       }
     }
     if(window.innerWidth <= 539) {
-
       if(filter !== null && !filter.classList.contains('filter_catalog')) {
         filter.classList.add('active')
         filter.style.display = 'block'
-      } else {
-        $( filter ).slideUp( "slow", function() {
-        });
       }
     }
 })
@@ -409,7 +392,6 @@ function link_Feilds(fields) {
     fields[i].addEventListener('input', function() {
       let number = getNumber(fields[i].value)
       range.value = number
-      console.log('test')
       ChangeRange(range)
       calc()
     })
@@ -778,21 +760,199 @@ if(document.querySelectorAll('.filter').length) {
 
   }
 
-let marksModelsList = filter.querySelector('.filter__model-mark-list')
-let btnMore = marksModelsList.querySelectorAll('.btn-more')
-let list_w = marksModelsList.querySelectorAll('.filter__btn-w')
-for(let i = 0; i<btnMore.length; i++) {
-  btnMore[i].addEventListener('click', function() {
-    let list = this.closest('.filter__btn-w')
-    if(list.classList.contains('active')) {
-      changerActive(list_w)
+
+// селектор марка модель
+const filterModelMark = filter.querySelector('.filter__model-mark')
+let btnPreview = filterModelMark.querySelectorAll('.btn-preview')
+const selectorModelMarkItem = filterModelMark.querySelectorAll('.filter__model-mark-item')
+
+
+//колонки
+const marksCol = filterModelMark.querySelector('.filter__mark-list')
+const modelsCol = filterModelMark.querySelector('.filter__models-col')
+const generationCol = filterModelMark.querySelector('.filter__generation-col')
+
+
+
+//марки
+let marksItem = marksCol.querySelectorAll('.filter__model-mark-item')
+
+
+filterModelMark.addEventListener('click', function(e) {
+  let target = e.target
+//открытие колонки с моделями по клику на стрелочку на марке
+  if(target.classList.contains('btn-show-models')) {
+    showModels(target)
+  }
+//открытие колонки с моделями по клику на стрелочку на марке
+  if(target.classList.contains('btn-show-generation')) {
+    showGeneration(target)
+  }
+//клик по чекбоксу марки
+  if(target.classList.contains('filter__item-checkbox-mark') || target.closest('.filter__item-checkbox-mark')) {
+    changeCheckBoxMark(target)
+  }
+//клик по чекбоксу модели
+  if(target.classList.contains('filter__item-checkbox-model') || target.closest('.filter__item-checkbox-model')) {
+    changeCheckBoxModel(target)
+  }
+//клик по чекбоксу генерации
+  if(target.classList.contains('filter__item-checkbox-generation') || target.closest('.filter__item-checkbox-generation')) {
+    changeCheckBoxGeneration(target)
+  }
+})
+
+//функция для открытия моделей 
+function showModels(btn) {
+  let mark = btn.closest('.filter__model-mark-item')
+  let title = mark.querySelector('.mark-title')
+  let currentModelsList = mark.querySelector('.filter__models-list')
+  if(window.innerWidth >= 540)
+  closeModelsGenerations(mark)
+  if(mark.classList.contains('active')) {
+    mark.classList.remove('active')
+  } else {
+    changerActive(marksItem)
+    mark.classList.add('active')
+    if(window.innerWidth >= 540) {
+      modelsCol.innerHTML = ''
+      modelsCol.appendChild(title.cloneNode(true))   
+      modelsCol.appendChild(currentModelsList).style.display = 'block'
     } else {
-      changerActive(list_w)
-      list.classList.add('active')
+
     }
-  }) 
+  }
 }
-console.log(btnMore)
+
+//функция для открытия генераций 
+function showGeneration(btn) {
+  let model = btn.closest('.filter__models-item')
+  let title = model.querySelector('.model-title')
+  let currentGenerationList = model.querySelector('.filter__generation-list')
+  let modelsItem = modelsCol.querySelectorAll('.filter__models-item')
+  if(window.innerWidth >= 540)
+  closeGenerations()
+  if(model.classList.contains('active')) {
+    model.classList.remove('active')
+    generationCol.innerHTML = ''
+  } else {
+    changerActive(modelsItem)
+    model.classList.add('active')
+    if(window.innerWidth >= 540) {
+      generationCol.innerHTML = ''
+      generationCol.appendChild(title.cloneNode(true))   
+      generationCol.appendChild(currentGenerationList).style.display = 'block'
+    }
+  }
+}
+//функция когда кликаем на чекбокс марки
+function changeCheckBoxMark(target) {
+  let mark = target.closest('.filter__model-mark-item')
+  let checkBoxMark = mark.querySelector('.filter__item-checkbox-mark')
+  let currentInput = checkBoxMark.querySelector('input')
+
+  if(currentInput.checked) {
+
+  } else {
+    // если выбрана марка
+    if(mark.querySelectorAll('.filter__item-checkbox-model').length) {
+      clearCheckbox(mark,'filter__item-checkbox-model')
+      clearCheckbox(mark,'filter__item-checkbox-generation')
+    } else {
+      clearCheckbox(modelsCol,'filter__item-checkbox-model')
+      clearCheckbox(modelsCol,'filter__item-checkbox-generation')
+      if(deleteSpace(generationCol.innerHTML) != '') {
+        clearCheckbox(generationCol,'filter__item-checkbox-generation')
+      }
+    }
+  }
+}
+//функция когда кликаем на чекбокс марки
+function changeCheckBoxModel(target) {
+  let model = target.closest('.filter__models-item')
+  let checkBoxMark = model.querySelector('.filter__item-checkbox-model')
+  let currentInput = checkBoxMark.querySelector('input')
+
+  if(currentInput.checked) {
+    if(model.closest('.filter__model-mark-item'))
+      model.closest('.filter__model-mark-item').querySelector('.filter__item-checkbox-mark').querySelector('input').checked = true
+    else
+      marksCol.querySelector('.filter__model-mark-item.active').querySelector('.filter__item-checkbox-mark').querySelector('input').checked = true
+  } else {
+    if(model.querySelectorAll('.filter__item-checkbox-generation').length)
+      clearCheckbox(model,'filter__item-checkbox-generation')
+    else
+      clearCheckbox(generationCol,'filter__item-checkbox-generation')
+  }
+}
+
+//функция когда кликаем на чекбокс марки
+function changeCheckBoxGeneration(target) {
+  let generation = target.closest('.filter__item-checkbox-generation')
+  let currentInput = generation.querySelector('input')
+  if(currentInput.checked) {
+    if(generation.closest('.filter__model-mark-item')) {
+      generation.closest('.filter__model-mark-item').querySelector('.filter__item-checkbox-mark').querySelector('input').checked = true
+      generation.closest('.filter__models-item').querySelector('.filter__item-checkbox-model').querySelector('input').checked = true
+    } else {
+      marksCol.querySelector('.filter__model-mark-item.active').querySelector('.filter__item-checkbox-mark').querySelector('input').checked = true
+      modelsCol.querySelector('.filter__models-item.active').querySelector('.filter__item-checkbox-model').querySelector('input').checked = true
+    }
+  } else {
+
+  }
+}
+
+
+function clearCheckbox(container,checkbox) {
+  let elems = container.querySelectorAll(`.${checkbox}`)
+  if(elems.length) {
+    for(let i = 0; i < elems.length; i++) {
+      elems[i].querySelector('input').checked = false
+    }
+  }
+}
+
+
+
+
+
+//закрытие модели + генерация
+function closeModelsGenerations(mark) {
+  closeGenerations()
+  if(deleteSpace(modelsCol.innerHTML) != '') {
+    let activeMark = marksCol.querySelector('.filter__model-mark-item.active')
+    let currentModelsList = modelsCol.querySelector('.filter__models-list')
+    let activeModel = currentModelsList.querySelector('.filter__models-item.active')
+    $(currentModelsList).attr('style', '')
+    activeMark.appendChild(currentModelsList)
+    modelsCol.innerHTML = ''
+    if(activeModel !== null)
+    activeModel.classList.remove('active')
+  }
+}
+//закрытие генераций
+function closeGenerations() {
+  if(deleteSpace(generationCol.innerHTML) != '') {
+    let activeModel = modelsCol.querySelector('.filter__models-item.active')
+    let currentGenerationList = generationCol.querySelector('.filter__generation-list')
+    $(currentGenerationList).attr('style', '')
+    activeModel.appendChild(currentGenerationList)
+    generationCol.innerHTML = ''
+  }
+}
+
+
+window.onresize = function() {
+  if(window.innerWidth <= 539) {
+    if(deleteSpace(generationCol.innerHTML) != '' || deleteSpace(modelsCol.innerHTML) != '') {
+      let activeMark = filter.querySelector('.filter__model-mark-item active')
+      closeModelsGenerations(activeMark)
+    }
+  }
+}
+
+
 function checkForReset() {
   let filterResetBtn = filter.querySelector('.filter__footer-btn_reset')
   let spans = filter.querySelectorAll('.new-text')
@@ -1222,20 +1382,25 @@ if(document.querySelectorAll('.offers__header-filter-list').length) {
 
 
 //раскрытие формы обменять на мой авто  на странице car 
-
 if(document.querySelectorAll('.possibilities_trade').length) {
   let possibilitiesTrade = document.querySelector('.possibilities_trade')
   possibilitiesTrade.onclick = function() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+        possibilitiesCredit.classList.add('show')
+        possibilitiesTrade.classList.remove('show')
         $('.trade-form').slideToggle(400);
         $('.credit_car').slideUp(400);
-  }
-}
 
+  }
 //раскрытие формы с калькулятором на странице car
-if(document.querySelectorAll('.possibilities_credit').length) {
   let possibilitiesCredit = document.querySelector('.possibilities_credit')
   possibilitiesCredit.onclick = function() {
         $('.trade-form').slideUp(400);
         $('.credit_car').slideToggle(400);
+        possibilitiesCredit.classList.remove('show')
+        possibilitiesTrade.classList.add('show')
   }
 }

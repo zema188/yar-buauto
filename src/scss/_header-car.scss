@@ -1,6 +1,12 @@
 .header_car{
   position: relative;
-
+  & .header__logo {
+    &::before {
+      @media(max-width:1023px) {
+        display: none;
+      }
+    }
+  }
   & .header__content {
     @media(max-width:767px) {
       padding-top: 14px;
@@ -10,11 +16,16 @@
     }
   }
   &.fixed {
+    &:before {
+      display: block;
+    }
     & .header-car {
       opacity: 1;
+
     }
     & .header__content {
       opacity: 0;
+      pointer-events: none;
     }
   }
 }
@@ -30,7 +41,7 @@
   opacity: 0;
   padding-bottom: 20px;
   padding-top: 20px;
-  background: rgb(255,255,255,0.8);
+
   @media(max-width:1023px) {
     padding-bottom: 10px;
     padding-top: 4px;
@@ -134,7 +145,7 @@
   &::before {
     content: "автосалон";
     @media(max-width:1023px) {
-      display: none;
+      // display: none;
     }
   }
   & img {
@@ -151,7 +162,7 @@
 }
 .header__back_mobile {
   display: none;
-  @media(max-width:539px) {
+  @media(max-width:1023px) {
     display: block;
   }
 }

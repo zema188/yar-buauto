@@ -4,8 +4,9 @@
   z-index: 9;
 }
 .header {
+  backdrop-filter: blur(6px);
+  background-color: rgba(255,255,255,.9);
 		&__content {
-            background: rgb(255,255,255,0.8);
             z-index: 2;
             position: relative;
             display: flex;

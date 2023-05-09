@@ -406,6 +406,11 @@
         color: #8D8D8D;
         transition: .2s;
         cursor: pointer;
+        &-number {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
     }
     &__prev {
         & img {

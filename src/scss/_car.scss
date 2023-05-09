@@ -264,7 +264,11 @@
         border-radius: 6.02094px;
         padding: 20px;
         width: 265px;
+        box-shadow: 2px 2px 6px 6px rgba(39, 39, 39, 0.01);
+        border-radius: 5px;
         @media(max-width:539px) {
+            box-shadow: 0px 0.40838px 7.22513px 4.81675px rgba(39, 39, 39, 0.04);
+            border-radius: 6.02094px;
             width: 221px;
         }
     }
@@ -998,7 +1002,7 @@
             padding: 0px 15px 50px 15px;
         }
         & .credit__btn-submit {
-            max-width: 300px;
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -1008,9 +1012,9 @@
     }
     @media(max-width:539px) {
         @include popup-down;
-        top: 100%;    
+        top: 150%;
         & .credit__btn-submit {
-            max-width: 300px;
+            max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -1022,6 +1026,11 @@
         position: static;
         background: url(../img/icons/close_black.svg) 0 0 no-repeat;
         background-position: center;
+    }
+    &.popup {
+    @media(max-width:539px) {
+        padding-bottom: 50px;
+    }
     }
 }
 .credit {
@@ -1342,7 +1351,7 @@
             justify-content: center;
         }
         @media(max-width:539px) {
-            padding: 21px 16px 7px;
+            padding: 21px 16px 21px;
             justify-content: space-between;
         }
     }
@@ -1499,7 +1508,7 @@
     &__footer-fixed {
         position: fixed;
         width: 100%;
-        background: rgba(255,255,255,0.7);
+        // background: rgba(255,255,255,0.7);
         gap: 8px;
         padding: 15px;
         bottom: 0px;
@@ -1522,6 +1531,8 @@
         text-align: center;
         color: #FFFFFF;
         padding: 12px 15px;
+        width: 100%;
+        max-width: 355px;
         & span {
             display: block;
             font-size: 16px;
@@ -1548,11 +1559,30 @@
     padding: 10px 37px 37px 37px;
     @media(max-width:1199px) {
         padding: 5px 15px;
+        & h3 {
+            margin-top: 10px;
+        }
+    }
+    & h3 {
+        margin-top: 20px;
     }
 }
 .possibilities_credit {
     margin-bottom: 20px;
     margin-top: 0px;
+    display: none;
+    &.show {
+        display: flex;
+    }
+}
+.possibilities_trade {
+    display: none;
+    &.show {
+        display: flex;
+        @media(max-width:1023px) {
+            display: none;
+        }
+    }
 }
 /*generated with Input range slider CSS style generator (version 20211225)
 https://toughengineer.github.io/demo/slider-styler*/
