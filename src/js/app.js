@@ -1189,6 +1189,10 @@ function addLock(elem) {
   elem.querySelector('span').innerHTML = ''
   let li = elem.querySelectorAll('li')
   changerActive(li)
+  inputs = elem.querySelectorAll('input')
+  for(let i = 0; i < inputs.length; i++) {
+    inputs[i].checked = false
+  }
 }
 function addHidden(elem) {
   elem.classList.add('hidden')
@@ -1199,18 +1203,32 @@ if(document.querySelectorAll('.additionally').length) {
   let additionally = document.querySelector('.additionally')
   let additionallyItem = document.querySelectorAll('.additionally__item')
 
+  let labels = additionally.querySelectorAll('label')
+  for (let i = 0; i < labels.length; i++) {
+    labels[i].addEventListener('click', function(e) {
+      labels[i].querySelector('input').checked = !labels[i].querySelector('input').checked
+      e.preventDefault()
+    })
+  }
+
+
 
   allLi = additionally.querySelectorAll('li')
   allSpans = additionally.querySelectorAll('span')
 
   additionally.addEventListener('click', function(e) {
     let target = e.target
-    console.log(target)
     let parent = target.closest('.additionally__item')
-    if(target.tagName == 'LI') {
+    let subtitle = parent.querySelector('.additionally__subtilte')
+    console.log(subtitle)
+    if($('.footer__dics').is(":visible")){
+      console.log('test')
+    }
+    if(target.tagName == 'LI' || target.closest('LI')) {
+      let currentLi = target.closest('LI')
       let span = parent.querySelector('.additionally__subtilte').querySelector('span')
       let li = parent.querySelectorAll('li')
-      if(target.classList.contains('active')) {
+      if(currentLi.classList.contains('active')) {
         changerActive(li)
         span.innerHTML = ''
         switch(parent.getAttribute('name')) {
@@ -1235,8 +1253,8 @@ if(document.querySelectorAll('.additionally').length) {
         }
       } else {
         changerActive(li)
-        target.classList.add('active')
-        span.innerHTML = deleteSpace(target.innerHTML)
+        currentLi.classList.add('active')
+        span.innerHTML = deleteSpace(currentLi.querySelector('span').innerHTML)
         parent.classList.remove('active')
         switch(parent.getAttribute('name')) {
           case 'mark': {
@@ -1294,7 +1312,19 @@ if(document.querySelectorAll('.test').length) {
   }
 }
 
+//скролим чтобы кнопка отправтиь была видна
+if(document.querySelectorAll('.scroll-to-visible-btn-send').length) {
+  let inputs = document.querySelectorAll('.scroll-to-visible-btn-send')
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener('focus', function(e) {
+      let btn = inputs[i].closest('.credit__block').querySelector('.credit__btn-submit')
+      // btn.scrollIntoView({behavior: "smooth"});
+      console.log(window.innerHeight)
+      window.scrollBy(0, 0);
+    })
+  }
 
+}
 
 if(document.querySelectorAll('.header_car').length) {
   let header = document.querySelector('.header_car')
