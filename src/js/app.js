@@ -1205,6 +1205,7 @@ if(document.querySelectorAll('.additionally').length) {
 
   additionally.addEventListener('click', function(e) {
     let target = e.target
+    console.log(target)
     let parent = target.closest('.additionally__item')
     if(target.tagName == 'LI') {
       let span = parent.querySelector('.additionally__subtilte').querySelector('span')

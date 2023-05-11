@@ -390,12 +390,13 @@
         top: calc(100% - 2px);
         z-index: 5;
         transition: .4s;
-        padding: 37px 20px 37px;
+        padding: 40px 20px 40px;
         left: 0;
         & ul {
             height: auto;
             max-height: 200px;
             overflow: auto;
+            padding-right: 10px;
             & li {
                 font-family: Rubik;
                 font-weight: 400;
@@ -407,6 +408,18 @@
                 &.active {
                     color: #272727;
                 }
+            }
+        }
+        & .filter__item-checkbox {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            border-bottom: 0.2px solid #bfbfbf;
+            padding-bottom: 16px;
+            & span {
+                color: #272727;
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 19px;
             }
         }
         @media(max-width:539px) {
@@ -436,8 +449,8 @@
         background: url(../img/icons/close_grey.svg) 0 0 no-repeat;
         background-size: cover;
         background-position: center;
-        width: 20px;
-        height: 20px;
+        width: 17px;
+        height: 17px;
         position: absolute;
         top: 15px;
         right: 15px;
