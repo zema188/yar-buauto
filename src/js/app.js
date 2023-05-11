@@ -9,6 +9,9 @@ function changerActive(list) {
 function deleteSpace(str) {
   return str.replace(/\s+/g, ' ').trim()
 }
+function deleteLetter(str) {
+  return str.replace(/[^0-9]/g,"").trim()
+}
 //Popup close 
 //filter list close
 document.addEventListener("click",
@@ -643,6 +646,8 @@ if(document.querySelectorAll('.filter').length) {
       if(e.target.classList.contains('reset-year')) {
         activeMinYearId = 0
         activeMaxYearId = 0
+        yearSwiper[0].slideTo(0, 400)
+        yearSwiper[1].slideTo(0, 400)
       }
     })
   }
@@ -732,22 +737,31 @@ if(document.querySelectorAll('.filter').length) {
     inputsSelector[i].addEventListener('input', function() {
       addSelectorFromInput(this)
     })
+    inputsSelector[i].addEventListener('focus', function() {
+      inputsSelector[i].value = numberWithCommas(deleteLetter(inputsSelector[i].value))
+    })
+    inputsSelector[i].addEventListener('blur', function() {
+      let prefix = inputsSelector[i].getAttribute('name-limit')
+      let type = inputsSelector[i].getAttribute('name-type')
+      inputsSelector[i].value = `${prefix} ${numberWithCommas(deleteLetter(inputsSelector[i].value))} ${type}`
+    })
   }
   function addSelectorFromInput(target) {
     let filterItem = target.closest('.filter__item')
     let title = filterItem.querySelector('.filter__item-subtitle').querySelector('span')
-    let min = filterItem.querySelector('[name$="от"]')
-    let max = filterItem.querySelector('[name$="до"]')
+    let min = filterItem.querySelector('[name-limit$="от"]')
+    let max = filterItem.querySelector('[name-limit$="до"]')
     let text = ''
-
-    if(target.value.length >=10) {
-      target.value = target.value.slice(0, 10);
+    let type = target.getAttribute('name-type')
+    target.value = numberWithCommas(deleteLetter(target.value))
+    if(target.value.length >=15) {
+      target.value = target.value.slice(0, 14);
     }
     if(min.value) {
-      text += 'от ' + min.value
+      text += `от ${numberWithCommas(deleteLetter(min.value))} ${type} `
     }
     if(max.value) {
-      text += ' до ' + max.value
+      text += `до ${numberWithCommas(deleteLetter(max.value))} ${type}`
     }
     title.innerHTML = text
     
@@ -963,7 +977,6 @@ function checkForReset() {
       break
     }
   } 
-
   if(isActive) {
     filterResetBtn.classList.add('active')
   } else {
@@ -987,11 +1000,12 @@ function addYears(target) {
 
     let span = parent.querySelector('span')
     let filterItem = target.closest('.filter__item')
+    let list = target.closest('.pc-list-year')
     let filterItemSubtitleSpan = filterItem.querySelector('.filter__item-subtitle').querySelector('span')
     let text = ""
   
-    let min = filterItem.querySelectorAll('[name$="min-year"]')
-    let max = filterItem.querySelectorAll('[name$="max-year"]')
+    let min = list.querySelectorAll('[name$="min-year"]')
+    let max = list.querySelectorAll('[name$="max-year"]')
     let minText = ''
     let maxText = ''
     let a = 0
@@ -1095,6 +1109,8 @@ function addYears(target) {
         filterInputs[i].value = '';
         activeMinYearId = 0
         activeMaxYearId = 0
+        yearSwiper[0].slideTo(0, 400)
+        yearSwiper[1].slideTo(0, 400)
       }
       for (let i = 0; i < filteritem.length; i++) {
         if(filterSubtitle[i].querySelector('span') !== null) {
@@ -1404,3 +1420,39 @@ if(document.querySelectorAll('.possibilities_trade').length) {
         possibilitiesTrade.classList.add('show')
   }
 }
+
+
+//mobile year swiper
+const yearSwiper = new Swiper('.mobile-year__swiper', {
+  slidesPerView: 7,
+  // slidesPerView: 'auto',
+  spaceBetween: 0,
+  direction: 'vertical',
+  slideToClickedSlide: true,
+  centeredSlides: true,
+  freeMode: {
+    enabled: true,
+    sticky: true,
+  },
+  on: {
+    slideChangeTransitionEnd: function (swiper) {
+      let headerYear = document.querySelector('.filter__item_year')
+      let title = headerYear.querySelector('.new-text')
+      let minSwiper = document.querySelector('.mobile-year__swiper-min')
+      let maxSwiper = document.querySelector('.mobile-year__swiper-max')
+      currentMinSlideText = minSwiper.querySelector('.swiper-slide-active').querySelector('span').innerHTML
+      currentMaxSlideText = maxSwiper.querySelector('.swiper-slide-active').querySelector('span').innerHTML
+      title.innerHTML = ''
+      if(deleteSpace(currentMinSlideText) != 'от') {
+        title.innerHTML += 'от ' +  currentMinSlideText
+      }
+      if(deleteSpace(currentMaxSlideText) != 'до') {
+        title.innerHTML += ' до ' +  currentMaxSlideText
+      }
+      if(parseInt(currentMinSlideText) >= parseInt(currentMaxSlideText)) {
+        title.innerHTML = ''
+        title.innerHTML += ' до ' +  currentMaxSlideText
+      }
+    }
+  }
+})

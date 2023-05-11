@@ -363,7 +363,7 @@
 						</div>
 					</div>
 					<div class="container_tablet">
-						<div class="filter_markup filter_catalog filter">
+						<div class="filter filter_markup filter_catalog filter">
 							<div class="filter__content">
 								<div class="filter__header">
 									<div class="filter__header-close popup-close">
@@ -853,11 +853,13 @@
 											Цена
 										</div>
 										<div class="filter__item-content-top ">
-											<b>Мин.
-											<input type="number" class="filter__item-input" name="от">
+											<b>
+												<strong>Мин.</strong>
+											<input type="text" inputmode="numeric" class="filter__item-input" name-limit="от" name-type="₽" placeholder="от 0 ₽">
 											</b>
-											<b>Макс.
-											<input type="number" class="filter__item-input" name="до">
+											<b>
+												<strong>Макс.</strong>
+											<input type="text" inputmode="numeric" class="filter__item-input" name-limit="до" name-type="₽" placeholder="до 7 000 000 ₽">
 											</b>
 										</div>
 										<div class=" filter__item-close filter__item-close-btn"></div>
@@ -880,12 +882,12 @@
 										<div class="filter__item-content-title">
 											Год выпуска
 										</div>
-										<div class="filter__item-content-top filter__item-content-top_grey">
+										<div class="filter__item-content-top filter__item-content-top_grey pc-year__top">
 											<b>От</b>
 											<b>До</b>
 										</div>
-										<div class="blur">
-											<div class="filter__item-list filter__item-list_flex filter__item-list_year">
+										<div class="blur pc-year__blur">
+											<div class="filter__item-list filter__item-list_flex filter__item-list_year pc-list-year">
 												<div class="filter__item-side filter__item-side_left">
 													<label class="filter__item-checkbox custom-w" name="min-year" >
 														<input name="years_from" type="radio" checked>
@@ -1042,6 +1044,230 @@
 												</div>
 											</div>
 										</div>
+										<blur>
+											<div class="mobile-year">
+												<div class="mobile-year__content">
+													<div class="swiper mobile-year__swiper">
+														<div class="swiper-wrapper">
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>от</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2023</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2022</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2021</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2020</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2019</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2018</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2017</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2016</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2015</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2014</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2013</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2012</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2011</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="min-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2010</span>
+																</label>
+															</div>
+														</div>
+													</div>
+													<div class="swiper mobile-year__swiper">
+														<div class="swiper-wrapper">
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>до</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2023</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2022</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2021</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2020</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2019</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2018</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2017</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2016</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2015</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2014</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2013</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2012</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2011</span>
+																</label>
+															</div>
+															<div class="mobile-year__slide swiper-slide">
+																<label class="filter__item-checkbox custom-w" name="max-year">
+																	<input name="years_from" type="radio" >
+																	<i class="filter__custom-input filter__custom-input_radio"></i>
+																	<span>2010</span>
+																</label>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</blur>
 										<div class=" filter__item-close filter__item-close-btn"></div>
 										<div class="filter__item-content-footer">
 											<button class="filter__item-content-reset reset-year">
@@ -1063,11 +1289,13 @@
 											Пробег, км
 										</div>
 										<div class="filter__item-content-top">
-											<b>Мин.
-											<input  class="filter__item-input"  name="от">
+											<b>
+												<strong>Мин.</strong>
+											<input type="text" inputmode="numeric" class="filter__item-input" name-limit="от" name-type="км" placeholder="от 0 км">
 											</b>
-											<b>Макс.
-											<input  class="filter__item-input"  name="до">
+											<b>
+												<strong>Макс.</strong>
+											<input type="text" inputmode="numeric" class="filter__item-input" name-limit="до" name-type="км" placeholder="до 10 000 000 км">
 											</b>
 										</div>
 										<div class=" filter__item-close filter__item-close-btn"></div>
@@ -1150,66 +1378,6 @@
 													<i class="filter__custom-input"></i>
 													<span>4x4</span>
 												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>Передний</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>Задний</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>4x4</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>Передний</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>Задний</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>4x4</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>Передний</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>Задний</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>4x4</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>Передний</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>Задний</span>
-												</label>
-												<label class="filter__item-checkbox custom-w">
-													<input type="checkbox" >
-													<i class="filter__custom-input"></i>
-													<span>4x4</span>
-												</label>
 											</div>
 										</div>
 										<div class=" filter__item-close filter__item-close-btn"></div>
@@ -1234,7 +1402,6 @@
 										<div class="filter__item-content-title">
 											Типы кузова
 										</div>
-										<div class="blur">
 											<div class="filter__item-list list-checkbox">
 												<label class="filter__item-checkbox custom-w">
 													<input type="checkbox" >
@@ -1276,8 +1443,67 @@
 													<i class="filter__custom-input"></i>
 													<span>Мини</span>
 												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Кроссоверы</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Вэны</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Мини</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Мини</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Кроссоверы</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Вэны</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Мини</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Мини</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Кроссоверы</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Вэны</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Мини</span>
+												</label>
+												<label class="filter__item-checkbox custom-w">
+													<input type="checkbox" >
+													<i class="filter__custom-input"></i>
+													<span>Мини</span>
+												</label>
 											</div>
-										</div>
 										<div class=" filter__item-close filter__item-close-btn"></div>
 										<div class="filter__item-content-footer">
 											<button class="filter__item-content-reset">
@@ -1409,7 +1635,6 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<div class="offers">
 						<div class="offers__header_mobile">
