@@ -1317,14 +1317,33 @@ if(document.querySelectorAll('.scroll-to-visible-btn-send').length) {
   let inputs = document.querySelectorAll('.scroll-to-visible-btn-send')
   for (let i = 0; i < inputs.length; i++) {
     inputs[i].addEventListener('focus', function(e) {
-      let btn = inputs[i].closest('.credit__block').querySelector('.credit__btn-submit')
-      // btn.scrollIntoView({behavior: "smooth"});
-      console.log(window.innerHeight)
-      window.scrollBy(0, 0);
+      if (window.innerWidth <=539) {
+        e.preventDefault();
+        e.stopPropagation();
+        inputs[i].scrollIntoView({
+          block: "start",
+          behavior: "smooth"
+        })
+      }
     })
   }
-
 }
+
+// //скролим чтобы кнопка отправтиь была видна
+// if(document.querySelectorAll('.scroll-to-visible').length) {
+//   let inputs = document.querySelectorAll('.scroll-to-visible')
+//   for (let i = 0; i < inputs.length; i++) {
+//     inputs[i].addEventListener('click', function(e) {
+//       if (window.innerWidth <=539) {
+//         inputs[i].scrollIntoView({
+//           block: "start",
+//           behavior: "smooth"
+//         })
+//       }
+//     })
+//   }
+// }
+
 
 if(document.querySelectorAll('.header_car').length) {
   let header = document.querySelector('.header_car')
