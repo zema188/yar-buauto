@@ -1220,10 +1220,6 @@ if(document.querySelectorAll('.additionally').length) {
     let target = e.target
     let parent = target.closest('.additionally__item')
     let subtitle = parent.querySelector('.additionally__subtilte')
-    console.log(subtitle)
-    if($('.footer__dics').is(":visible")){
-      console.log('test')
-    }
     if(target.tagName == 'LI' || target.closest('LI')) {
       let currentLi = target.closest('LI')
       let span = parent.querySelector('.additionally__subtilte').querySelector('span')
@@ -1305,46 +1301,6 @@ if(document.querySelectorAll('.additionally').length) {
 }
 
 
-if(document.querySelectorAll('.test').length) {
-  let test = document.querySelector('.test') 
-  test.onclick = function() {
-    this.classList.add('progress-bar-striped')
-  }
-}
-
-//скролим чтобы кнопка отправтиь была видна
-if(document.querySelectorAll('.scroll-to-visible-btn-send').length) {
-  let inputs = document.querySelectorAll('.scroll-to-visible-btn-send')
-  for (let i = 0; i < inputs.length; i++) {
-    inputs[i].addEventListener('focus', function(e) {
-      if (window.innerWidth <=539) {
-        e.preventDefault();
-        e.stopPropagation();
-        inputs[i].scrollIntoView({
-          block: "start",
-          behavior: "smooth"
-        })
-      }
-    })
-  }
-}
-
-// //скролим чтобы кнопка отправтиь была видна
-// if(document.querySelectorAll('.scroll-to-visible').length) {
-//   let inputs = document.querySelectorAll('.scroll-to-visible')
-//   for (let i = 0; i < inputs.length; i++) {
-//     inputs[i].addEventListener('click', function(e) {
-//       if (window.innerWidth <=539) {
-//         inputs[i].scrollIntoView({
-//           block: "start",
-//           behavior: "smooth"
-//         })
-//       }
-//     })
-//   }
-// }
-
-
 if(document.querySelectorAll('.header_car').length) {
   let header = document.querySelector('.header_car')
   document.addEventListener('scroll', function() {
@@ -1355,9 +1311,6 @@ if(document.querySelectorAll('.header_car').length) {
     }
   })
 }
-
-
-
 
 
 //car page car__discount
@@ -1372,6 +1325,8 @@ if(document.querySelectorAll('.car__discount-btn_pc').length) {
     });
   });
 }
+
+
 //car page car__discount mobile
 if(document.querySelectorAll('.car__discount-btn_mob').length) {
   let carDiscountBtn = document.querySelector('.car__discount-btn_mob')
@@ -1423,8 +1378,6 @@ if(document.querySelectorAll('.car__discount-btn_mob').length) {
 
 
 //offers__header-filter-list
-
-
 if(document.querySelectorAll('.offers__header-filter-list').length) {
   let btnOpenFilterOfferList = document.querySelector('.offers__header-filter-title')
   let offersFilterList = document.querySelector('.offers__header-filter-list')
