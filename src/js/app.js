@@ -1459,3 +1459,19 @@ const yearSwiper = new Swiper('.mobile-year__swiper', {
     }
   }
 })
+
+
+// прижимаем футер вниз на странице акции
+if(document.querySelectorAll('.wrapper_stock').length) {
+  let footer = document.querySelector('.footer-w')
+  let wrapper = document.querySelector('.wrapper')
+  function addPaddingWrapperFromFooter() {
+    let margin = window.getComputedStyle(footer).marginTop
+    console.log(parseInt(margin))
+    wrapper.style.paddingBottom = footer.clientHeight + parseInt(margin) + 'px'
+  }
+  window.onresize = function() {
+    addPaddingWrapperFromFooter()
+  }
+  addPaddingWrapperFromFooter()
+}

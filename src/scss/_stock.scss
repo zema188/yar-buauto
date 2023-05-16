@@ -9,3 +9,12 @@
 .stock__title  {
   margin-bottom: 20px;
 }
+.wrapper_stock {
+  min-height: 100%;
+  & .footer-w {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+  }
+}
