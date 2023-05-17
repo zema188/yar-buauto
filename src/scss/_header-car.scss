@@ -143,7 +143,6 @@
 
 .header__logo {
   &::before {
-    content: "автосалон";
     @media(max-width:1023px) {
       // display: none;
     }

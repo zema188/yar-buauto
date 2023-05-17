@@ -1200,7 +1200,7 @@ function addHidden(elem) {
 
 
 if(document.querySelectorAll('.additionally').length) {
-  let additionally = document.querySelector('.additionally')
+  let additionally = document.querySelector('.credit__form')
   let additionallyItem = document.querySelectorAll('.additionally__item')
 
   let labels = additionally.querySelectorAll('label')
@@ -1219,7 +1219,7 @@ if(document.querySelectorAll('.additionally').length) {
   additionally.addEventListener('click', function(e) {
     let target = e.target
     let parent = target.closest('.additionally__item')
-    let subtitle = parent.querySelector('.additionally__subtilte')
+    let currentList = target.closest('.additionally__list')
     if(target.tagName == 'LI' || target.closest('LI')) {
       let currentLi = target.closest('LI')
       let span = parent.querySelector('.additionally__subtilte').querySelector('span')
@@ -1229,21 +1229,21 @@ if(document.querySelectorAll('.additionally').length) {
         span.innerHTML = ''
         switch(parent.getAttribute('name')) {
           case 'mark': {
-            addLock(document.querySelector('[name$="model"]'))
-            addLock(document.querySelector('[name$="ads"]'))
-            addHidden(document.querySelector('[name$="calc"]'))
-            addHidden(document.querySelector('[name$="ads-item"]'))
+            addLock(currentList.querySelector('[name$="model"]'))
+            addLock(currentList.querySelector('[name$="ads"]'))
+            addHidden(currentList.querySelector('[name$="calc"]'))
+            addHidden(currentList.querySelector('[name$="ads-item"]'))
             break
           }
           case 'model': {
-            addLock(document.querySelector('[name$="ads"]'))
-            addHidden(document.querySelector('[name$="calc"]'))
-            addHidden(document.querySelector('[name$="ads-item"]'))
+            addLock(currentList.querySelector('[name$="ads"]'))
+            addHidden(currentList.querySelector('[name$="calc"]'))
+            addHidden(currentList.querySelector('[name$="ads-item"]'))
             break
           }
           case 'ads': {
-            addHidden(document.querySelector('[name$="calc"]'))
-            addHidden(document.querySelector('[name$="ads-item"]'))
+            addHidden(currentList.querySelector('[name$="calc"]'))
+            addHidden(currentList.querySelector('[name$="ads-item"]'))
             break
           }
         }
@@ -1254,16 +1254,22 @@ if(document.querySelectorAll('.additionally').length) {
         parent.classList.remove('active')
         switch(parent.getAttribute('name')) {
           case 'mark': {
-            document.querySelector('[name$="model"]').classList.remove('lock')
+            currentList.querySelector('[name$="model"]').classList.remove('lock')
             break
           }
           case 'model': {
-            document.querySelector('[name$="ads"]').classList.remove('lock')
+            currentList.querySelector('[name$="ads"]').classList.remove('lock')
             break
           }
           case 'ads': {
-            document.querySelector('[name$="calc"]').classList.remove('hidden')
-            document.querySelector('[name$="ads-item"]').classList.remove('hidden')
+            if(currentList.querySelector('[name$="calc"]') !== null) {
+              console.log('test')
+              currentList.querySelector('[name$="calc"]').classList.remove('hidden')
+            }
+
+            if(currentList.querySelector('[name$="ads-item"]') !== null) {
+              currentList.querySelector('[name$="ads-item"]').classList.remove('hidden')
+            }
             calc()
             break
           }
@@ -1467,7 +1473,6 @@ if(document.querySelectorAll('.wrapper_stock').length) {
   let wrapper = document.querySelector('.wrapper')
   function addPaddingWrapperFromFooter() {
     let margin = window.getComputedStyle(footer).marginTop
-    console.log(parseInt(margin))
     wrapper.style.paddingBottom = footer.clientHeight + parseInt(margin) + 'px'
   }
   window.onresize = function() {
