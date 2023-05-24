@@ -370,6 +370,16 @@ if(document.querySelectorAll('.credit__form').length) {
   link_Feilds(fields)
   let fieldsRange = document.querySelectorAll('[range-name]')
   link_Feilds_Range(fieldsRange)
+  $(".js-range-slider").ionRangeSlider({
+    onChange: function (data) {
+      console.log(data.from)
+      let id = ($(".js-range-slider").attr('range-name'))
+      let field = document.querySelector('[range-for="'+id+'"]')
+      let suffix = $(".js-range-slider").attr('suffix')
+      field.value = numberWithCommas(data.from) + ' ' + suffix
+      calc()
+    },
+  })
 
 }
 
@@ -394,7 +404,8 @@ function link_Feilds(fields) {
     
     fields[i].addEventListener('input', function() {
       let number = getNumber(fields[i].value)
-      range.value = number
+      console.log(range)
+      range.data.value = number
       ChangeRange(range)
       calc()
     })
@@ -409,6 +420,7 @@ function link_Feilds_Range(range) {
     let field = document.querySelector('[range-for="'+id+'"]')
     let suffix = range[i].getAttribute('suffix')
     range[i].addEventListener('input', function() {
+      console.log('test')
       field.value = numberWithCommas(range[i].value) + ' ' + suffix
       calc()
     })
@@ -1480,3 +1492,13 @@ if(document.querySelectorAll('.wrapper_stock').length) {
   }
   addPaddingWrapperFromFooter()
 }
+
+
+
+// раскрытие текста в футере по клику на кнопку подробнее
+let footerBtnMore = document.querySelector('.footer__dics-more-btn')
+footerBtnMore.onclick = function() {
+  this.classList.add('hidden')
+  $('.footer__dics-hidden').slideToggle(400);
+}
+
