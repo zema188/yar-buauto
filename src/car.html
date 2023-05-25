@@ -830,8 +830,6 @@
 										data-min="1"
 										data-max="96"
 										data-from="200"
-										data-to="500"
-										data-grid="true"
 										>
 									 </div>
 									 <div class="credit__item-footer">
@@ -844,8 +842,12 @@
 										<span class="credit__item-subtitle">
 											Первоначальный взнос
 										</span>
-										<input class="credit__field" range-for="deposit" suffix="₽" min="0" max="1000000" value="100 000 ₽">
-										<input class="credit__field styled-slider slider-progress" range-name="deposit" suffix="₽" type="range" min="0" max="1000000" value="100000" step="1000">
+										<input class="credit__field" range-for="deposit" suffix="%">
+										<input class="credit__field styled-slider js-range-slider" range-name="deposit" suffix="%" type="text"
+										data-min="0"
+										data-max="100"
+										data-from="36"
+										>
 									 </div>
 									 <div class="credit__item-footer">
 										<span>0%</span>

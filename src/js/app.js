@@ -370,17 +370,20 @@ if(document.querySelectorAll('.credit__form').length) {
   link_Feilds(fields)
   let fieldsRange = document.querySelectorAll('[range-name]')
   link_Feilds_Range(fieldsRange)
-  $(".js-range-slider").ionRangeSlider({
-    onChange: function (data) {
-      console.log(data.from)
-      let id = ($(".js-range-slider").attr('range-name'))
-      let field = document.querySelector('[range-for="'+id+'"]')
-      let suffix = $(".js-range-slider").attr('suffix')
-      field.value = numberWithCommas(data.from) + ' ' + suffix
-      calc()
-    },
-  })
-
+  let jsRangeSlider = document.querySelectorAll('.js-range-slider')
+  for(let i = 0; i < jsRangeSlider.length; i++) {
+    $(jsRangeSlider[i]).ionRangeSlider({
+      grid: false,
+      skin: "round",
+      onChange: function (data) {
+        let id = $(jsRangeSlider[i]).attr('range-name')
+        let field = document.querySelector('[range-for="'+id+'"]')
+        let suffix = $(jsRangeSlider[i]).attr('suffix')
+        field.value = numberWithCommas(data.from) + ' ' + suffix
+        calc()
+      },
+    })
+  }
 }
 
 //link fields for calc поля ввода 
@@ -465,10 +468,12 @@ function calc() {
 
   let price = document.querySelector('.car__price-now').innerHTML
   price =  parseInt(price.split(' ').join(''))
-  let months = document.querySelector('[range-name="months"').value
+  let months = document.querySelector('[range-for="months"').value
+  // let months = document.querySelector('[range-name="months"').value
   months =  parseInt(months)
   let procents = document.querySelector('.credit-year-procent').innerHTML
   procents =  parseFloat(procents.split(' ').join(''))
+  console.log(procents)
   procents = (procents / 100) / 12
   let firstPay = document.querySelector('[range-name="deposit"').value
   price = price - firstPay
