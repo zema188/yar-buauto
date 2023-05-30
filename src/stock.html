@@ -23,61 +23,57 @@
 				Акции
 			</h2>
 		</div>
-		<div class="preview-swiper swiper container">
-			<div class="preview-swiper__wrapper swiper-wrapper">
-				<div class="preview-swiper__slide swiper-slide">
-					<div class="preview-swiper__slide-content">
-						<div class="preview-swiper__slide-text">
-							<div class="preview-swiper__slide-subtitle">
-								<p>АВТОкредит </p>
-								<p>от 18% годовых</p> 
-							</div>
-							<div class="preview-swiper__slide-lead">
-								<b>15</b> банков партнеров
-							</div>
-						</div>
-						<div class="preview-swiper__slide-pic">
-							<img src="./img/icons/card_green.svg" alt="folder">
-						</div>
+		<div class="stock__content container">
+			<div class="stock__list">
+				<a href="#" class="stock__list-item">
+					<div class="stock__item-pic">
+						<picture>
+                            <source media="(max-width: 539px)" srcset="./img/pic/stock-green.png">
+							<img src="./img/pic/stock.png" alt="stock">
+                        </picture>
 					</div>
-				</div>
-				<div class="preview-swiper__slide swiper-slide">
-					<div class="preview-swiper__slide-content">
-						<div class="preview-swiper__slide-text">
-							<div class="preview-swiper__slide-subtitle">
-								<p>зимняя резина </p>
-								<p>в подарок</p>
-							</div>
-							<div class="preview-swiper__slide-lead">
-								Сроки акции ограничены
-							</div>
-						</div>
-						<div class="preview-swiper__slide-pic slide-pic_tires">
-							<img src="./img/icons/tires.svg" alt="folder">
-						</div>
+					<div class="stock__item-text">
+						<h5>
+							АВТОкредит от 4.9% годовых
+						</h5>
+						<p>
+							15 банков партнеров
+						</p>
 					</div>
-				</div>
-				<div class="preview-swiper__slide swiper-slide">
-					<div class="preview-swiper__slide-content">
-						<div class="preview-swiper__slide-text">
-							<div class="preview-swiper__slide-subtitle">
-								<p>АВТОкредит</p>
-								<p>за 30 минут</p> 
-							</div>
-							<div class="preview-swiper__slide-lead">
-								от <b>7,9%</b> годовых
-							</div>
-							<div class="preview-swiper__slide-lead">
-								от <b>0%</b> первый взнос
-							</div>
-						</div>
-						<div class="preview-swiper__slide-pic">
-							<img src="./img/pic/folder_red.png" alt="folder">
-						</div>
+				</a>
+				<a href="#" class="stock__list-item">
+					<div class="stock__item-pic">
+						<picture>
+                            <source media="(max-width: 539px)" srcset="./img/pic/stock-black.png">
+							<img src="./img/pic/stock-2.png" alt="stock">
+                        </picture>
 					</div>
-				</div>
+					<div class="stock__item-text">
+						<h5>
+							300 литров бензина в подарок
+						</h5>
+						<p>
+							Сроки акции ограничены
+						</p>
+					</div>
+				</a>
+				<a href="#" class="stock__list-item">
+					<div class="stock__item-pic">
+						<picture>
+                            <source media="(max-width: 539px)" srcset="./img/pic/stock-blue.png">
+							<img src="./img/pic/stock-3.png" alt="stock">
+                        </picture>
+					</div>
+					<div class="stock__item-text">
+						<h5>
+							зимняя резина в подарок
+						</h5>
+						<p>
+							Сроки акции ограничены
+						</p>
+					</div>
+				</a>
 			</div>
-			<div class="preview-swiper__pagination swiper-pagination"></div>
 		</div>
 		@@include("./footer.html", {
 			"item1": "<div class=\"footer-w\">"
